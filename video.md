@@ -73,6 +73,7 @@ Making, cutting, and understanding video with an agent. Spans skills, plugins, a
   - *Needs:* Node 20+, ffmpeg. Interactive setup wizard walks through backend choice.
   - `/plugin marketplace add https://github.com/jordanrendric/claude-video-vision` → `/plugin install claude-video-vision`
   - *Note:* v1.0.0, tested on macOS Apple Silicon with the local backend. Other platforms are less proven.
+- **[claude-video](https://github.com/bradautomates/claude-video)** (14.1k★) — Give Claude the ability to watch any video. /watch downloads, extracts frames, transcribes, hands it all to Claude.
 
 ## Considered and skipped
 
