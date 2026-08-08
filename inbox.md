@@ -14,3 +14,4 @@ Triage moves each item into the domain file that fits, with type marker, install
 - [stagehand](https://github.com/browserbase/stagehand) (`23.8k★` · `TypeScript` · pushed 2026-08-07) — The SDK For Browser Agents
 - [agentmemory](https://github.com/rohitg00/agentmemory) (`26.7k★` · `TypeScript` · pushed 2026-08-03) — #1 Persistent memory for AI coding agents based on real-world benchmarks
 - [openvid](https://github.com/CristianOlivera1/openvid) (`1.7k★` · `TypeScript` · pushed 2026-08-07) — Create professional demos and 3D mockups in seconds, directly in your browser
+- [i-have-adhd](https://github.com/ayghri/i-have-adhd) (`18.2k★` · `Python` · pushed 2026-08-06) — A skill to stop your coding agent from burying the answer. ADHD-friendly output.
