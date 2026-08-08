@@ -12,3 +12,5 @@ Triage moves each item into the domain file that fits, with type marker, install
 - [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) (`186k★` · `Python` · pushed 2026-08-07) — AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.
 - [esengine](https://github.com/esengine/esengine) (`909★` · `TypeScript` · pushed 2026-07-30) — ESEngine - High-performance TypeScript ECS Framework for Game Development
 - [stagehand](https://github.com/browserbase/stagehand) (`23.8k★` · `TypeScript` · pushed 2026-08-07) — The SDK For Browser Agents
+- [agentmemory](https://github.com/rohitg00/agentmemory) (`26.7k★` · `TypeScript` · pushed 2026-08-03) — #1 Persistent memory for AI coding agents based on real-world benchmarks
+- [openvid](https://github.com/CristianOlivera1/openvid) (`1.7k★` · `TypeScript` · pushed 2026-08-07) — Create professional demos and 3D mockups in seconds, directly in your browser
