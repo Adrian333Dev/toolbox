@@ -1,0 +1,7 @@
+# Agentic Research Tools/Skills
+
+- [agent-research-skills](https://github.com/lingzhi227/agent-research-skills) (`269★` · `Python` · pushed 2026-02-27) — Skills for Claude Code — deep-research: systematic academic literature review
+- [deep-research](https://github.com/wshuyi/deep-research) (`326★` · pushed 2026-02-25) — Deep Research Methodology (8-step) - Transform vague topics into high-quality research reports with systematic fact extraction and verifiable conclusions
+- [social-media-research-skills](https://github.com/ScrapeCreators/social-media-research-skills) (`1.4k★` · `Python` · pushed 2026-07-24) — Social media research skills for AI agents powered by ScrapeCreators- [Deep-Research-skills](https://github.com/Weizhena/Deep-Research-skills) (`1.9k★` · `Python` · pushed 2026-05-07) — Structured deep research skill for Claude Code/Open Code/Codex with human-in-the-loop control
+- [claude-deep-research-skill](https://github.com/199-biotechnologies/claude-deep-research-skill) (`982★` · `Python` · pushed 2026-04-11) — Enterprise-grade deep research skill for Claude Code with 8-phase pipeline, source credibility scoring, and automated validation. Outperforms OpenAI, Gemini, and Claude Desktop in quality and verification.
+- [last30days-skill](https://github.com/mvanhorn/last30days-skill) (`57.9k★` · `Python` · pushed 2026-08-09) — AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary
