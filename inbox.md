@@ -15,3 +15,6 @@ Triage moves each item into the domain file that fits, with type marker, install
 - [agentmemory](https://github.com/rohitg00/agentmemory) (`26.7k★` · `TypeScript` · pushed 2026-08-03) — #1 Persistent memory for AI coding agents based on real-world benchmarks
 - [openvid](https://github.com/CristianOlivera1/openvid) (`1.7k★` · `TypeScript` · pushed 2026-08-07) — Create professional demos and 3D mockups in seconds, directly in your browser
 - [i-have-adhd](https://github.com/ayghri/i-have-adhd) (`18.2k★` · `Python` · pushed 2026-08-06) — A skill to stop your coding agent from burying the answer. ADHD-friendly output.
+- [deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) (`176k★` · `TypeScript` · pushed 2026-08-19) — DeepSeek Harness: Everything is a Plugin.
+- [i-have-adhd](https://github.com/ayghri/i-have-adhd) (`22.7k★` · `Python` · pushed 2026-08-19) — A skill to stop your coding agent from burying the answer. ADHD-friendly output.
+- [adhd](https://github.com/UditAkhourii/adhd) (`3.9k★` · `TypeScript` · pushed 2026-08-05) — ADHD — a skill for coding agents. Tree-of-thought with pruning, built on the Claude & Codex Agent SDK. Fans out parallel divergent thoughts under different cognitive frames, scores, prunes traps, deepens the survivors. The no-brainer skill for creative and interdisciplinary work.
