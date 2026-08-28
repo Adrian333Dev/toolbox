@@ -22,3 +22,4 @@ Triage moves each item into the domain file that fits, with type marker, install
 - [impeccable](https://github.com/pbakaus/impeccable) (`63.1k★` · `JavaScript` · pushed 2026-08-27) — The design language that makes your AI harness better at design.
 - [taste-skill](https://github.com/Leonxlnx/taste-skill) (`81.3k★` · `JavaScript` · pushed 2026-08-24) — Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop 
 - [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) (`121k★` · `Python` · pushed 2026-08-27) — An AI skill that provides design intelligence for building professional UI/UX across multiple platforms.
+- [heretic](https://github.com/p-e-w/heretic) (`28.5k★` · `Python` · pushed 2026-08-17) — Fully automatic censorship removal for language models
