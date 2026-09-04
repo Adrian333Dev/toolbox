@@ -71,3 +71,6 @@ Triage moves each item into the domain file that fits, with type marker, install
 - [Claudest](https://github.com/gupsammy/Claudest) (`273★` · `Python` · pushed 2026-06-11) — A highly opinionated plugin marketplace for augmenting your Claude Code. Battle-tested skills and tools that actually work.
 - [MemEvolve](https://github.com/bingreeky/MemEvolve) (`262★` · `Python` · pushed 2026-05-05) — [ICML'26] MemEvolve & EvolveLab
 - [memory-graph](https://github.com/memory-graph/memory-graph) (`244★` · `TypeScript` · pushed 2026-08-27) — A graph DB-based MCP memory server for coding agents with intelligent relationship tracking
+- [archify](https://github.com/tt-a1i/archify) (`47.6k★` · `JavaScript` · pushed 2026-09-04) — Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.
+- [CodeBoarding](https://github.com/CodeBoarding/CodeBoarding) (`2.4k★` · `Python` · pushed 2026-09-04) — Interactive architecture diagrams for codebases
+- [Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) (`81.5k★` · `TypeScript` · pushed 2026-09-04) — Graphs that teach > graphs that impress. Turn any code into an interactive knowledge graph you can explore, search, and ask questions about. Works with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and more.
