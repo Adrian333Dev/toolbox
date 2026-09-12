@@ -75,3 +75,5 @@ Triage moves each item into the domain file that fits, with type marker, install
 - [CodeBoarding](https://github.com/CodeBoarding/CodeBoarding) (`2.4k★` · `Python` · pushed 2026-09-04) — Interactive architecture diagrams for codebases
 - [Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) (`81.5k★` · `TypeScript` · pushed 2026-09-04) — Graphs that teach > graphs that impress. Turn any code into an interactive knowledge graph you can explore, search, and ask questions about. Works with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and more.
 - [ffmpeg-skill](https://github.com/kajisho5/ffmpeg-skill) (`340★` · `Python` · pushed 2026-09-07) — no description
+- [agent-skills](https://github.com/vercel-labs/agent-skills) (`31.1k★` · `JavaScript` · pushed 2026-08-28) — Vercel's official collection of agent skills
+- [agent-skills](https://github.com/supabase/agent-skills) (`2.6k★` · `TypeScript` · pushed 2026-08-12) — Agent Skills to help developers using AI agents with Supabase
