@@ -4,7 +4,7 @@ type: plugin
 url: https://github.com/thedotmack/claude-mem
 stars: 93.8k
 language: TypeScript
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

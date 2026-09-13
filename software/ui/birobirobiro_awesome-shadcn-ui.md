@@ -4,7 +4,7 @@ type: collection
 url: https://github.com/birobirobiro/awesome-shadcn-ui
 stars: 20.5k
 language: TypeScript
-pushed: 2026-09-07
+pushed: 2026-09-13
 ---
 
 ## Notes

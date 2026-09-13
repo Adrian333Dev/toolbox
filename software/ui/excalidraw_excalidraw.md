@@ -4,7 +4,7 @@ type: library
 url: https://github.com/excalidraw/excalidraw
 stars: 131k
 language: TypeScript
-pushed: 2026-09-11
+pushed: 2026-09-13
 ---
 
 ## Notes

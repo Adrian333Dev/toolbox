@@ -1,0 +1,1766 @@
+🧠 Awesome Agent Memory
+
+    A curated map of memory for AI agents — the systems, benchmarks, and research that give LLM and multimodal agents long-term context, persistent recall, and the ability to improve from experience.
+
+   👀 Open-source resources (e.g. papers with reproducible code publicly available on Github) are marked in bold font and ranked higher.
+
+---
+
+### 🧭 Start Here
+
+| If you want to… | Jump to |
+|---|---|
+| Add a memory layer to an agent you're building | [💿 Products](#-products) |
+| Choose a benchmark to evaluate a memory system | [📏 Benchmarks](#-benchmarks) |
+| Get oriented in the field | [📖 Tutorials](#-tutorials) · [📚 Surveys](#-surveys) |
+| Follow research on memory architectures | [🔤 Nonparametric Memory](#-papers---nonparametric-memory) · [🔢 Parametric Memory](#-papers---parametric-memory) |
+| Build agents that learn from experience | [📈 Memory for Agent Evolution](#-papers---memory-for-agent-evolution) |
+| Protect agent memory from poisoning and abuse | [🔒 Memory Security & Defense](#-memory-security--defense) |
+
+  📋 How this list is curated
+
+  - Open-source products are ordered by GitHub star count — an objective, CI-checked popularity signal, not a quality ranking or an endorsement. Products with fewer than 100 stars sit in a collapsed **Emerging projects** section and graduate into the main list once they cross that threshold.
+  - **Bold** marks resources with reproducible code publicly available.
+  - Descriptions are factual, not promotional (see the [contributing guide](CONTRIBUTING.md)).
+  - This list is maintained by [Bloo-Mind AI](https://www.bloo-mind.ai/) and the Ubiquitous AGI team at TeleAI. Entries affiliated with the maintainers are marked with † and follow the same ranking, format, and style rules as every other entry. One convention applies to all entries regardless of affiliation: an API-compatible drop-in replacement for a listed product is nested under that product as an unranked sub-item rather than given its own star-ranked position.
+  - Projects that are inactive, archived, or whose claims are disputed move to the [Archival](#archival) subsection with a neutral status label, links to the evidence, and the date the status was last checked.
+
+  📰 In the News
+
+- 📰 [[NVIDIA (2026-08-21)] AVO reaches 100% on ARC-AGI-3, crediting persistent memory across context resets and a supervisor that redirects a stalled agent](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/)
+- 📰 [[Agent Memory Leaderboard (2026-08-13)] First public results: 136 teams registered and 69 memory systems completed the first text-memory evaluation](https://news.ycombinator.com/item?id=49281370)
+- 📰 [[Perplexity (2026-06-18)] Perplexity launches Brain, a self-improving memory system](https://www.perplexity.ai/hub/blog/self-improving-memory-for-agents)
+- 📰 [[OpenAI (2026-06-04)] Dreaming: Better memory for a more helpful ChatGPT](https://openai.com/index/chatgpt-memory-dreaming/)
+- 📰 [[Bloo-Mind AI (2026-05-20)] The Benchmark Theatre: Why Almost Nothing You’ve Read About Agent Memory Scores Is True](https://essays.bloo-mind.ai/posts/2026-05-20-mem-eval/) †
+- 📰 [[Jiayi Weng (2026-05-09)] Learning Beyond Gradients](https://trinkle23897.github.io/learning-beyond-gradients/)
+- 📰 [[Anthropic (2026-05-08)] Three key areas Anthropic is working on for their next models](https://www.reddit.com/r/singularity/comments/1t5q53r/three_key_areas_anthropic_is_working_on_for_their/)
+- 📰 [[InfoQ (2026-04-30)] Cloudflare Announces Agent Memory, a Managed Persistent Memory Service for AI Agents](https://www.infoq.com/news/2026/04/cloudflare-agent-memory-beta/)
+- 📰 [[OpenAI (2026-04-22)] Chronicle: Build Codex Memories from Recent Screen Context](https://developers.openai.com/codex/memories/chronicle)
+    *  _Open-Source Alternatives_: [OpenChronicle](https://github.com/Einsia/OpenChronicle), [MemScreen](https://github.com/smileformylove/MemScreen)
+- 📰 [[a16z (2026-04-22)] Why We Need Continual Learning](https://a16z.com/why-we-need-continual-learning/)
+- 📰 [[AI Godfather (2026-04-08)] MemPalace - How Milla Jovovich's AI Project Scammed the Internet](https://www.youtube.com/watch?v=WlxNNvDHJkE)
+- 📰 [[Troy Hua (2026-03-31)] How Anthropic Built 7 Layers of Memory and a Dreaming System for Claude Code](https://x.com/troyhua/status/2039052328070734102)
+- 📰 [[VelvetShark (2026-03-05)] OpenClaw Memory Masterclass: The complete guide to agent memory that survives](https://velvetshark.com/openclaw-memory-masterclass)
+- 📰 [[Business Insider (2026-01-08)] AI still needs a breakthrough in one key area to reach superintelligence, according to those who build it](https://www.businessinsider.com/superintelligent-ai-memory-sam-altman-2026-1)
+
+---
+
+  🗂️ Table of Contents
+
+    💿 Products
+    📖 Tutorials
+    📚 Surveys
+    📏 Benchmarks
+
+        💬 Plain-Text Benchmarks
+        🎬 Multimodal Benchmarks
+        🎮 Dynamic Benchmarks & Simulation Environments
+
+    🔤 Papers - Nonparametric Memory
+
+        📝 Text Memory
+        🌐 Graph Memory
+        🎥 Multimodal Memory (for Understanding)
+        🎥 Multimodal Memory (for Generation)
+
+    🔢 Papers - Parametric Memory
+    📈 Papers - Memory for Agent Evolution
+
+        🧭 Reinforcement Learning & Continual Learning
+        🧩 Context Engineering & Harness Engineering
+
+    🔬 Papers - Memory in Cognitive Science
+    🔒 Memory Security & Defense
+    📰 Articles
+    👥 Workshops
+
+**If you find this page helpful, please give it a ⭐️ — starring also keeps updates in your GitHub feed.**
+
+_🤝 Contributions welcome! Feel free to open an issue or submit a pull request to add papers, fix links, or improve categorization — see the [contributing guide](CONTRIBUTING.md) for entry formats._
+
+---
+
+## 💿 Products
+
+### Open-Source
+
+_Ordered by the number of GitHub stars. Products with fewer than 100 stars continue the list inside the collapsed **Emerging projects** section below — they graduate into the main list once they cross that threshold. An API-compatible drop-in replacement for a listed product appears as an unranked sub-item under that product._
+
+1. **[Claude-Mem (A Plug-in for Claude-Code)](https://claude-mem.ai/)**
+
+     [[code](https://github.com/thedotmack/claude-mem)]
+     [[docs](https://docs.claude-mem.ai/introduction)]
+     _Session capture and compression that re-injects past activity into future sessions across coding agents._
+
+2. **[Mem0](https://mem0.ai/)**
+
+     [[code](https://github.com/mem0ai/mem0)]
+     [[docs](https://docs.mem0.ai/)]
+     [[paper](https://arxiv.org/abs/2504.19413)]
+     [[blog](https://mem0.ai/blog)]
+     _Universal memory layer for AI agents._
+
+    - **[TeleMem](https://github.com/TeleAI-UAGI/TeleMem)** †
+
+        [[code](https://github.com/TeleAI-UAGI/TeleMem)]
+        [[docs](https://teleai-uagi.github.io/telemem/)]
+        [[paper](https://arxiv.org/abs/2601.06037)]
+        _API-compatible high-performance drop-in replacement for Mem0 (`import telemem as mem0`); listed as an unranked sub-item of Mem0 per the drop-in replacement convention. Maintainer-affiliated._
+
+3. **[OpenViking](https://openviking.ai/)**
+
+     [[code](https://github.com/volcengine/OpenViking)]
+     [[docs](https://docs.openviking.ai/)]
+     [[paper1](https://arxiv.org/abs/2605.29640)]
+     [[paper2](https://arxiv.org/abs/2606.16903)]
+     [[blog](https://blog.openviking.ai/)]
+     _Self-evolving context database for AI agents that unifies agent memory, knowledge RAG, and skills behind one storage/retrieval layer, with an MCP server for cross-session read/write._
+
+4. **[Zep (powered by Graphiti)](https://www.getzep.com/)**
+
+     [[code](https://github.com/getzep/graphiti)]
+     [[paper](https://arxiv.org/abs/2501.13956)]
+     [[blog](https://blog.getzep.com/)]
+     _Real-time temporal knowledge graphs for AI agents._
+
+5. **[Cognee](https://www.cognee.ai/)**
+
+     [[code](https://github.com/topoteretes/cognee)]
+     [[paper](https://arxiv.org/abs/2505.24478)]
+     [[blog](https://www.cognee.ai/blog)]
+     _Memory engine that ingests data into a hybrid graph + vector knowledge graph for cross-session agent recall._
+
+6. **[gbrain](https://github.com/garrytan/gbrain)**
+
+     [[code](https://github.com/garrytan/gbrain)]
+     _Garry's opinionated OpenClaw/Hermes agent brain._
+
+7. **[agentmemory](https://www.agent-memory.dev/)**
+
+     [[code](https://github.com/rohitg00/agentmemory)]
+     _Persistent memory for AI coding agents._
+
+8. **[TencentDB Agent Memory](https://github.com/Tencent/TencentDB-Agent-Memory)**
+
+     [[code](https://github.com/Tencent/TencentDB-Agent-Memory)]
+     _Fully local long-term memory for AI agents via a 4-tier progressive pipeline, with zero external API dependencies._
+
+9. **[Letta (formerly MemGPT)](https://www.letta.com/)**
+
+     [[code](https://github.com/letta-ai/letta)]
+     [[paper](https://arxiv.org/abs/2310.08560)]
+     [[research](https://www.letta.com/research)]
+     [[blog](https://www.letta.com/blog)]
+     _Stateful-agent platform with hierarchical memory that learns and self-improves over time._
+
+10. **[Hindsight](https://hindsight.vectorize.io/)**
+
+     [[code](https://github.com/vectorize-io/hindsight)]
+     [[paper](https://arxiv.org/abs/2512.12818)]
+      _Agent memory layer that learns from interaction feedback to improve recall over time._
+
+11. **[Context Mode](https://context-mode.com/)**
+
+      [[code](https://github.com/mksglu/context-mode)]
+      _Context-window optimization for AI coding agents: diverts large tool outputs into a locally searchable store and persists session memory across platforms via MCP and hooks._
+
+12. **[Second Me](https://home.second.me/)**
+
+      [[code](https://github.com/mindverse/Second-Me)]
+      [[paper](https://arxiv.org/abs/2503.08102)]
+      _Personal AI trained on the user to represent them across applications._
+
+13. **[MemU](https://memu.pro/)**
+
+      [[code](https://github.com/NevaMind-AI/memU)]
+      [[blog](https://memu.pro/blog)]
+      _Memory layer for 24/7 proactive agents._
+
+14. **[EverOS (part of EverMind)](https://evermind-ai.com/)**
+
+      [[code](https://github.com/EverMind-AI/EverOS)]
+      [[blog](https://evermind-ai.com/blog/)]
+      _Toolkit for building, evaluating, and integrating long-term memory in self-evolving agents._
+
+15. **[MemOS (by MemTensor)](https://memos.openmem.net/)**
+
+      [[code](https://github.com/MemTensor/MemOS)]
+      [[paper](https://arxiv.org/abs/2507.03724)]
+      _Memory OS for LLM agents with hybrid retrieval and cross-task skill reuse._
+
+16. **[Honcho](https://honcho.dev/)**
+
+      [[code](https://github.com/plastic-labs/honcho)]
+      [[research](https://blog.plasticlabs.ai/research/)]
+      [[blog](https://blog.plasticlabs.ai/)]
+      [[eval](https://evals.honcho.dev/)]
+      _Memory library for stateful agents with a focus on user modeling._
+
+17. **[engram (by Gentleman-Programming)](https://github.com/Gentleman-Programming/engram)**
+
+      [[code](https://github.com/Gentleman-Programming/engram)]
+      _Persistent memory for AI coding agents — agent-agnostic single Go binary with SQLite + FTS5, exposed via MCP server, HTTP API, CLI, and TUI._
+
+18. **[MemoryBear](https://www.memorybear.ai/)**
+
+      [[code](https://github.com/SuanmoSuanyangTechnology/MemoryBear)]
+      [[paper](https://arxiv.org/abs/2512.20651)]
+      _Memory framework providing human-like episodic and semantic recall to AI agents._
+
+19. **[ByteRover](https://www.byterover.dev/)**
+
+      [[code](https://github.com/campfirein/byterover-cli)]
+      [[paper](https://arxiv.org/abs/2604.01599)]
+      [[docs](https://docs.byterover.dev/)]
+      _LLM-curated hierarchical context tree for coding agents, with git-like branching, cloud sync, and MCP; formerly Cipher, source-available under Elastic License 2.0._
+
+20. **[OpenMemory](https://openmemory.cavira.app/)**
+
+      [[code](https://github.com/caviraoss/openmemory)]
+      _Local persistent memory store for LLM apps (Claude Desktop, Copilot, Codex, etc.)._
+
+21. **[memory-lancedb-pro](https://github.com/CortexReach/memory-lancedb-pro)**
+
+      [[code](https://github.com/CortexReach/memory-lancedb-pro)]
+      [[blog](https://lancedb.com/blog/openclaw-lancedb-memory-layer/)]
+      [[video](https://www.youtube.com/watch?v=bhuGrjuCM_g)]
+      _Enhanced [LanceDB](https://lancedb.com/) memory plugin for [OpenClaw](https://openclaw.ai/)_
+
+22. **[MIRIX](https://mirix.io/)**
+
+      [[code](https://github.com/Mirix-AI/MIRIX)]
+      [[paper](https://arxiv.org/abs/2507.07957)]
+      [[blog](https://mirix.io/#/blog)]
+      _Multi-agent personal assistant that captures on-screen activity and consolidates it into structured memory._
+
+23. **[MemMachine](https://memmachine.ai/)**
+
+      [[code](https://github.com/MemMachine/MemMachine)]
+      [[blog](https://memmachine.ai/blog/)]
+      _Interoperable memory layer providing extensible storage and retrieval primitives for AI agents._
+
+24. **[Memobase](https://docs.memobase.io/)**
+
+      [[code](https://github.com/memodb-io/memobase)]
+      _User profile-based long-term memory for AI chatbot applications._
+
+25. **[Memanto](https://memanto.ai/)**
+      [[code](https://github.com/moorcheh-ai/memanto)]
+      [[paper](https://arxiv.org/abs/2604.22085)]
+      [[docs](https://docs.memanto.ai)]
+      _Typed semantic memory with `remember`/`recall`/`answer` operations and information-theoretic retrieval._
+
+26. **[LangMem](https://langchain-ai.github.io/langmem/)**
+
+      [[code](https://github.com/langchain-ai/langmem)]
+      [[blog](https://blog.langchain.com/)]
+      _LangChain's memory primitives for storing, recalling, and managing agent state in LangGraph workflows._
+
+27. **[Puppyone](https://www.puppyone.ai)**
+
+      [[code](https://github.com/puppyone-ai/puppyone)]
+      [[docs](https://www.puppyone.ai/doc)]
+      _Filesystem-shaped agent memory with auto-versioning, per-agent ACLs, and data connectors; accessible via MCP/REST/CLI._
+
+28. **[Mem9](https://mem9.ai/)**
+
+      [[code](https://github.com/mem9-ai/mem9)]
+      [[blog](https://addozhang.medium.com/keep-memory-local-building-a-private-openclaw-memory-hub-with-mem9-tidb-5b305345b40a)]
+      _Local private memory hub for OpenClaw and similar coding agents._
+
+29. **[Omnigraph](https://github.com/ModernRelay/omnigraph)**
+
+      [[code](https://github.com/ModernRelay/omnigraph)]
+      _Object-storage-native graph engine for agent memory with git-style branch/merge workflows._
+
+30. **[CodeAlmanac](https://github.com/AlmanacCode/codealmanac)**
+
+      [[code](https://github.com/AlmanacCode/codealmanac)]
+      _Repo-local Markdown wiki for AI coding agents that preserves project conversations, decisions, and implementation context._
+
+31. **[PowerMem](https://www.powermem.ai)**
+
+      [[code](https://github.com/oceanbase/powermem)]
+      _Persistent, self-evolving memory for AI agents — hybrid vector/full-text/graph retrieval with LLM-driven extraction, Ebbinghaus-style decay, and two-layer Experience + Skill distillation; from the OceanBase team._
+
+32. **[Agent QA](https://vostride.com/docs/agent-qa)**
+
+      [[code](https://github.com/vostride/agent-qa)]
+      _Open-source QA agent that retains persistent test memory to reuse prior runs and self-heal natural-language web and mobile tests._
+
+33. **[HMS (Holographic Memory System)](https://github.com/Shadow-Weave/HMS)**
+
+      [[code](https://github.com/Shadow-Weave/HMS)]
+      _Long-term memory QA framework that wraps OpenAI clients with automatic recall and retain, PostgreSQL-backed, evaluated on LongMemEval._
+
+34. **[projectmem](https://projectmem.dev)**
+
+      [[code](https://github.com/riponcm/projectmem)]
+      [[docs](https://projectmem.dev/guide)]
+      [[paper](https://arxiv.org/abs/2606.12329)]
+      _Local-first, event-sourced memory for AI coding agents: an append-only event log served via MCP, plus a pre-commit gate that warns before repeating a failed fix._
+
+35. **[deja](https://github.com/vshulcz/deja-vu)**
+
+      [[code](https://github.com/vshulcz/deja-vu)]
+      _Indexes the session transcripts twenty coding agents already write to disk, retroactively — local BM25 recall over them, with credentials redacted at index time._
+
+36. **[Memorix](https://github.com/AVIDS2/memorix)**
+
+      [[code](https://github.com/AVIDS2/memorix)]
+      _Local-first cross-agent memory layer for coding agents via MCP — SQLite-backed project memory with observation, reasoning, and git-derived fact types, plus task-lensed context briefs._
+
+37. **[Vestige](https://github.com/samvallad33/vestige)**
+
+      [[code](https://github.com/samvallad33/vestige)]
+      [[release](https://github.com/samvallad33/vestige/releases/tag/v2.1.23)]
+      _Local-first cognitive memory MCP server for coding agents, with FSRS-6 decay, spreading activation, active suppression, Receipt Lock, and an inspectable dashboard._
+
+38. **[Compartment](https://github.com/MaxFreedomPollard/Compartment)**
+
+      [[code](https://github.com/MaxFreedomPollard/Compartment)]
+      _Offline, encrypted-at-rest vector memory for agents via MCP server, Python, or CLI; AEAD-encrypted embeddings, hybrid recall, per-record crypto-shred deletion, hash-chained audit log._
+
+39. **[MemClaw (Caura)](https://memclaw.net/)**
+
+      [[code](https://github.com/caura-ai/caura-memclaw)]
+      [[blog](https://memclaw.net/blog)]
+      _Governed shared memory for AI agent fleets — cross-agent knowledge sharing with permissions, audit trails, and self-learning._
+
+40. **[MisakaNet](https://github.com/Ikalus1988/MisakaNet)**
+
+      [[code](https://github.com/Ikalus1988/MisakaNet)]
+      [[wiki](https://github.com/Ikalus1988/MisakaNet/wiki)]
+      _Git-based distributed swarm memory; agents share lessons across nodes via GitHub Issues._
+
+41. **[Statewave](https://statewave.ai/)**
+
+      [[code](https://github.com/smaramwbc/statewave)]
+      [[docs](https://github.com/smaramwbc/statewave-docs)]
+      [[blog](https://www.statewave.ai/blog)]
+      _Open-source memory runtime for AI agents serving reproducible, provenance-tagged context bundles instead of query-time retrieval; self-hosted on Postgres + pgvector with Python/TypeScript SDKs._
+
+42. **[Mnemory](https://github.com/fpytloun/mnemory)**
+      [[code](https://github.com/fpytloun/mnemory)]
+      _Multi-type agent memory (facts, preferences, episodic) with TTLs, user/agent scoping, and an MCP server._
+
+43. **[OMEGA](https://omegamax.co)**
+      [[code](https://github.com/omega-memory/omega-memory)]
+      [[blog](https://omegamax.co/blog)]
+      _MCP server exposing 25 memory tools for AI coding agents._
+
+44. **[Remnic](https://remnic.ai/)**
+
+      [[code](https://github.com/joshuaswarren/remnic)]
+      [[docs](https://remnic.ai/guides/)]
+      [[paper](https://doi.org/10.5281/zenodo.21922631)]
+      _Local-first Markdown memory shared across coding agents and MCP clients, with per-result provenance, correction workflows, and the MemCorrect benchmark._
+
+45. **[Memov](https://www.memov.ai/)**
+
+      [[code](https://github.com/memovai/memov)]
+      _Git-based, traceable memory layer for Claude Code._
+
+46. **[Belief Context Graph](https://bigai-nlco.github.io/belief-context-graph/)**
+
+      [[code](https://github.com/bigai-nlco/belief-context-graph)]
+      _Confidence-aware belief graph organizing long-horizon agent context into trackable, updatable belief states; includes SDK, graph-building tools, visualization UI, and agent benchmark._
+
+47. **[CommonGround Kernel](https://github.com/Intelligent-Internet/CommonGround)**
+
+      [[code](https://github.com/Intelligent-Internet/CommonGround)]
+      _PostgreSQL-backed shared work-record substrate for human-agent and multi-agent systems, with durable handoff facts, causal lineage, and pull-first recovery across runtimes._
+
+  🌱 Emerging projects — open-source products with fewer than 100 GitHub stars, same format and ordering (click to expand)
+
+48. **[taOSmd](https://github.com/jaylfc/taosmd)**
+
+      [[code](https://github.com/jaylfc/taosmd)]
+      [[eval](https://github.com/jaylfc/taosmd/blob/master/docs/benchmarks.md)]
+      _Local-first, offline agent memory: an append-only transcript yields a typed temporal knowledge graph with source-grounded, verifier-checked facts and hybrid retrieval, tuned for small local models._
+
+49. **[causal-memory](https://github.com/JingxuanC/causal-memory)**
+
+      [[code](https://github.com/JingxuanC/causal-memory)]
+      [[eval](https://github.com/JingxuanC/causal-memory/tree/main/docs/benchmarks)]
+      _Local-first agent memory in Rust: facts and typed decision→outcome causal edges (caused/enabled/prevented) on one SQLite store, with inhibitory spreading activation, MCP server, CLI, Python bindings._
+
+50. **[Synap](https://maximem.ai)**
+
+      [[code](https://github.com/maximem-ai/maximem_synap_sdk)]
+      [[docs](https://docs.maximem.ai)]
+      _Long-term memory layer that extracts facts, preferences, episodes, and temporal events from conversations; integrates with most major agent frameworks._
+
+51. **[Wenlan](https://wenlan.app/)**
+
+      [[code](https://github.com/7xuanlu/wenlan)]
+      [[docs](https://wenlan.app/docs)]
+      _Local-first AI knowledge base and LLM wiki that distills agent work into source-cited pages and serves them to MCP clients._
+
+52. **[RetainDB](https://retaindb.com)**
+
+      [[code](https://github.com/RetainDB/RetainDB)]
+      _Local-first agent memory with noise filtering, typed facts, reuse-based reinforcement, and BM25 + vector + graph retrieval with RRF and reranking; Apache-2.0 core, BSL-1.1 server._
+
+53. **[LWC](https://janyork.github.io/llm-wiki-cli/)**
+
+      [[code](https://github.com/JanYork/llm-wiki-cli)]
+      _Agent-operated persistent memory CLI with source-cited Wiki pages, full-text search, document graphs, and CodeGraph indexes for cross-session project recall._
+
+54. **[widemem-ai](https://widemem.ai)**
+
+      [[code](https://github.com/remete618/widemem-ai)]
+      _Lightweight memory layer with importance scoring, temporal decay, and 3-tier hierarchy._
+
+55. **[memclaw (Felo)](https://memclaw.me)**
+
+      [[code](https://github.com/Felo-Inc/memclaw)]
+      _Persistent project memory for AI coding agents — isolated per-project workspaces, a web dashboard to review what the agent remembers, and team collaboration._
+
+56. **[Mi-Memory](https://darwin-agent.github.io/Mi-Memory/)**
+
+      [[code](https://github.com/Darwin-Agent/Mi-Memory)]
+      [[docs](https://darwin-agent.github.io/Mi-Memory/)]
+      [[paper](https://arxiv.org/abs/2607.18975)]
+      _Lifecycle memory framework for personal assistant agents from Xiaomi's Darwin Agent team; multi-source user state with provenance, editable correction and forgetting, device-adaptive deployment._
+
+57. **[Data Olympus](https://github.com/knaisoma/data-olympus)**
+
+      [[code](https://github.com/knaisoma/data-olympus)]
+      _Governed project memory for AI coding agents: agents propose learnings, humans promote them, and MCP retrieval serves only in-force knowledge after validity and supersession checks._
+
+58. **[ZenBrain](https://zensation.ai/en)**
+
+      [[code](https://github.com/zensation-ai/zenbrain)]
+      [[paper](https://arxiv.org/abs/2604.23878)]
+      _Neuroscience-inspired 7-layer memory architecture for autonomous agents in zero-dependency TypeScript, with FSRS spaced repetition, Hebbian learning, and sleep-cycle consolidation._
+
+59. **[Mnemoverse](https://mnemoverse.com)**
+
+      [[code](https://github.com/mnemoverse/mcp-memory-server)]
+      _Persistent memory API for agents over MCP: scores importance on write, builds Hebbian associations, and re-ranks recall from outcome feedback; managed engine, open MCP client._
+
+60. **[InvMem](https://github.com/wenxiaof345-ctrl/vanilla-rag-memory)**
+
+      [[code](https://github.com/wenxiaof345-ctrl/vanilla-rag-memory)]
+      _Vanilla RAG baseline (chunking, embeddings, FAISS/SQLite vector store) behind a synchronous Add/Search API; #1, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+61. **[GoodMemory](https://github.com/hjqcan/GoodMemory)**
+
+      [[code](https://github.com/hjqcan/GoodMemory)]
+      [[docs](https://github.com/hjqcan/GoodMemory#quickstart-codex-or-claude-code-memory)]
+      _Local-first, auditable memory layer for AI agents and coding hosts, with durable SQLite, embedding-free recall, MCP access, and opt-in governed writeback._
+
+62. **[A3M Router](https://github.com/Das-rebel/a3m-router)**
+
+      [[code](https://github.com/Das-rebel/a3m-router)]
+      _Multi-model LLM router with persistent memory (MemoryTree), cross-session context-window management, conversation memory with semantic recall, and ObsidianVault integration._
+
+63. **[Tree Ring Memory](https://terminallylazy.github.io/Tree-Ring-Memory/)**
+
+      [[code](https://github.com/TerminallyLazy/Tree-Ring-Memory)]
+      _Local-first memory lifecycle for AI agents with a Rust CLI, SQLite/FTS recall, audit, forgetting, consolidation, and Ratatui TUI._
+
+64. **[ReFind](https://github.com/imlrz/ReFind)**
+
+      [[code](https://github.com/imlrz/ReFind)]
+      _Memory retriever that plans iterative searches over a conversation-level BM25 index and returns contextual evidence blocks; #2, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+65. **[Agentic Task System](https://github.com/renezander030/agentic-task-system)**
+
+      [[code](https://github.com/renezander030/agentic-task-system)]
+      _Agent-native context layer over your existing task app (TickTick; Notion/Obsidian planned), exposing hybrid retrieval over tasks/notes to agents via a CLI with pluggable storage adapters._
+
+66. **[Lint-AI](https://github.com/RooAGI/Lint-AI)**
+
+      [[code](https://github.com/RooAGI/Lint-AI)]
+      _Agent memory and semantic review engine with lexical, temporal, and graph-aware retrieval across conversations, documents, code, and agent sessions._
+
+67. **[Lians agent memory](https://www.lians.ai/)**
+
+      [[code](https://github.com/Lians-ai/Lians)]
+      [[eval](https://github.com/Lians-ai/Lians/blob/master/docs/benchmark.md)]
+      _Bitemporal agent memory with deterministic supersession, point-in-time recall, MCP access, audit trails, and local SQLite or PostgreSQL storage._
+
+68. **[FluctlightDB](https://github.com/voxmastery/FluctlightDB)**
+
+      [[code](https://github.com/voxmastery/FluctlightDB)]
+      [[paper](https://doi.org/10.5281/zenodo.20949890)]
+      _Embedded database engine for AI agents with `experience()`/`activate()` API and reproducible LoCoMo evaluation._
+
+69. **[sqlite-graph-memory](https://github.com/Palo-Alto-AI-Research-Lab/sqlite-graph-memory)**
+
+      [[code](https://github.com/Palo-Alto-AI-Research-Lab/sqlite-graph-memory)]
+      _Graph RAG memory for agents over a markdown vault: dense retrieval, hand-curated wikilink 1-hop expansion, cross-encoder rerank, per-turn SQLite ledger._
+
+70. **[AtMem](https://github.com/aetna000/atmem)**
+
+      [[code](https://github.com/aetna000/atmem)]
+      _Local-first agent memory with governed retrieval, provenance, lifecycle controls, delegated context delivery, execution evidence, SQLite storage, MCP, and an audit dashboard._
+
+71. **[inspeximus (formerly mnemo)](https://dancenitra.github.io/inspeximus/)**
+
+      [[code](https://github.com/DanceNitra/inspeximus)]
+      _Zero-dependency memory layer and MCP server with value-ranked recall, per-type decay, keyed supersession, revert-based correction, signed provenance, tamper-evident receipts, and cross-store erasure._
+
+72. **[ActiveMemoryIndex](https://github.com/linxuhao/ActiveMemoryIndex)**
+
+      [[code](https://github.com/linxuhao/ActiveMemoryIndex)]
+      _Dual store of verbatim timestamped turns and atomic first-person facts, retrieved in the same register; #3, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+73. **[archon-memory-core](https://github.com/atw4757-byte/archon-memory-core)**
+
+      [[code](https://github.com/atw4757-byte/archon-memory-core)]
+      _Local-first agent memory with nightly consolidation, active forgetting, and salience scoring._
+
+74. **[chamnan](https://github.com/ArcticFox2029/chamnan)**
+
+      [[code](https://github.com/ArcticFox2029/chamnan)]
+      [[data](https://github.com/ArcticFox2029/chamnan-corpus)]
+      _Repository-local context for coding agents: an architecture index, impact map, and decision records committed beside the code._
+
+75. **[Agent Knowledge Cycle](https://github.com/shimo4228/agent-knowledge-cycle)**
+
+      [[code](https://github.com/shimo4228/agent-knowledge-cycle)]
+      [[paper](https://doi.org/10.5281/zenodo.20578272)]
+      _Six-phase knowledge cycle specification (ADRs, JSON schemas, reference implementation) that turns coding-agent sessions into persistent skills, rules, and memory._
+
+76. **[Talamus](https://ampres-ai.github.io/talamus/)**
+
+      [[code](https://github.com/ampres-ai/talamus)]
+      [[docs](https://ampres-ai.github.io/talamus/)]
+      [[eval](https://ampres-ai.github.io/talamus/benchmarks/)]
+      _Local-first agent memory that stores source-grounded Markdown, preserves bitemporal history and provenance, and exposes search, recall, and review-gated correction through MCP._
+
+77. **[RE-call](https://github.com/GiulioDER/RE-call)**
+
+      [[code](https://github.com/GiulioDER/RE-call)]
+      [[docs](https://github.com/GiulioDER/RE-call/blob/master/docs/USING_WITH_CLAUDE.md)]
+      [[eval](https://github.com/GiulioDER/RE-call/blob/master/results/FINDINGS.md)]
+      _Postgres plus pgvector memory retrieval for AI agents, with provenance, trust verdicts, tenant isolation, MCP access, and abstention when evidence is insufficient._
+
+78. **[PackRat](https://github.com/kevdogg102396-afk/packrat)**
+
+      [[code](https://github.com/kevdogg102396-afk/packrat)]
+      _Auto-learning codebook compression that shrinks agent context files while keeping them LLM-readable._
+
+79. **[Hybrid Episodic Memory](https://github.com/tlysanhuo/agent-memory-challenge)**
+
+      [[code](https://github.com/tlysanhuo/agent-memory-challenge)]
+      _Deterministic weighted reciprocal-rank fusion of BM25 and dense retrieval over raw conversational turns, no LLM in the path; #6, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+80. **[kgai](https://kgai.dev)**
+
+      [[code](https://github.com/kgaidev/kgai)]
+      _Local-first immutable knowledge graph of engineering decisions for AI coding agents; superseded decisions and rejected approaches stay queryable; embedded graph DB, opt-in team sync._
+
+81. **[Verified Memory Vault](https://github.com/secondbrainstarter/verified-memory-vault)**
+
+      [[code](https://github.com/secondbrainstarter/verified-memory-vault)]
+      _Obsidian vault doubling as Claude Code memory: deterministic health-score linter (undated entries, duplicates, dead links) plus a git pre-commit hook refusing mass deletions._
+
+82. **[myc](https://aistastudio.github.io/myc/)**
+
+      [[code](https://github.com/aistastudio/myc)]
+      [[docs](https://aistastudio.github.io/myc/)]
+      _Local task-and-memory layer for coding agents: decision oplog with hybrid search, session/repo-scoped recall, PreCompact hook saving the episode before compaction; Bun + SQLite._
+
+83. **[memgres](https://github.com/mozgsml/memgres)**
+
+      [[code](https://github.com/mozgsml/memgres)]
+      _Versioned document memory for AI agents over one Postgres; lexical or semantic recall, diff-based history, git-blame line attribution, GDPR-erasable, multi-tenant via MCP/HTTP._
+
+84. **[FlowGrid AML Retriever](https://github.com/dlxeva/flowgrid-aml-retriever)**
+
+      [[code](https://github.com/dlxeva/flowgrid-aml-retriever)]
+      _Deterministic, evidence-first Add/Search retriever that stores every original message and returns ranked, traceable source evidence; #8, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+85. **[engram (by FBISiri)](https://github.com/FBISiri/engram)**
+
+      [[code](https://github.com/FBISiri/engram)]
+      _Go memory service on Qdrant with write-time dedup and importance gating, type-based TTL decay, reflection into insights, and MCP plus REST interfaces._
+
+86. **[AML Memory MVP](https://github.com/0xboyu/aml-memory-mvp)**
+
+      [[code](https://github.com/0xboyu/aml-memory-mvp)]
+      _Evidence-only, typo-tolerant retriever over English and CJK text using SQLite FTS5, character n-grams, and conversation-neighbor expansion; #10, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+87. **[ExperienceNet](https://github.com/cu-min/experiencenet)**
+
+      [[code](https://github.com/cu-min/experiencenet)]
+      [[docs](https://github.com/cu-min/experiencenet/blob/master/docs/API.md)]
+      _Self-hosted experience network for agents: search and write real technical attempts (problem/conditions/action/outcome), lexical + semantic hybrid retrieval over PostgreSQL/pgvector, gap capture, reuse feedback._
+
+88. **[Akephalos](https://github.com/daveinturkey15-byte/akephalos)**
+
+      [[code](https://github.com/daveinturkey15-byte/akephalos)]
+      _Local-first, markdown-based portable agent profile (preferences, rules, durable memories) synced across agents via plain files and Git._
+
+89. **[溯忆 (Suyi)](https://github.com/xiaofanliu525-ctrl/suyi-memory)**
+
+      [[code](https://github.com/xiaofanliu525-ctrl/suyi-memory)]
+      _Dual-temporal memory engine for AI agents — SQLite-backed, zero-dependency, Ebbinghaus-decayed fact storage with skill crystallization._
+
+90. **[Panella](https://panella.tech)**
+
+      [[code](https://github.com/panellatech/panella)]
+      _Self-hosted governed memory over MCP; agent writes become durable only after human approval with verifiable receipts; Apache-2.0._
+
+91. **[Hybrid Memory Search](https://github.com/cydd-1972/hybrid_search)**
+
+      [[code](https://github.com/cydd-1972/hybrid_search)]
+      _Local hybrid-retrieval memory service with per-user isolation, synchronous embedding on write, and fused BM25/dense ranking; #4, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+92. **[ChronoHybridMem](https://github.com/Tin11Mn/chrono-hybrid-mem)**
+
+      [[code](https://github.com/Tin11Mn/chrono-hybrid-mem)]
+      _Evidence-only textual memory over SQLite FTS5 with optional LLM fact extraction and multi-route candidate recall; #5, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+93. **[Chronicle Memory](https://github.com/simple-boy/Chronicle-Memory)**
+
+      [[code](https://github.com/simple-boy/Chronicle-Memory)]
+      _Evidence-only memory over SQLite with a hybrid lexical scorer adding phrase, temporal, and session-diversity bonuses; #7, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+94. **[MemoryAgent](https://github.com/llLAlisa/memory-agent-submission)**
+
+      [[code](https://github.com/llLAlisa/memory-agent-submission)]
+      _FastAPI + ChromaDB memory system with local sentence-transformers embeddings and similarity-based write deduplication; #9 as LLLMemoryAgent, Agent Memory Leaderboard (academic textual, 2026-08)._
+
+95. **[FeedRecall](https://github.com/Paoladev45/feedrecall)**
+
+      [[code](https://github.com/Paoladev45/feedrecall)]
+      _Local-first MCP memory for saved social discoveries, with source dates, project relevance, evidence lifecycle, timelines, and bounded recall for coding agents._
+
+96. **[claude-memory-tidy](https://github.com/tonydzi/claude-memory-tidy)**
+
+      [[code](https://github.com/tonydzi/claude-memory-tidy)]
+      _Maintenance layer for always-loaded agent memory files: deterministic budget guard, orphan-note coverage, and verbatim folding into warm sub-indexes, guarding against silent truncation._
+
+97. **[RCLL](https://rcll.ai)**
+
+      [[code](https://github.com/holetron-lab/fleet-memory)]
+      [[docs](https://rcll.ai/docs/)]
+      [[eval](https://rcll.ai/docs/benchmarks/)]
+      _Self-hosted shared memory for a fleet of agents: topic rooms, L0–L3 depth, Postgres/pgvector; the read path invokes no language model. Fork of Hindsight._
+
+### Closed-Source
+
+-  [MemoraX](https://memorax.ai/)
+   [[spec](https://memorax.ai/spec/)]
+   [[platform](https://platform.memorax.net/)]
+   _Memory layer for long-horizon agents from MemoraX AI; core system is API-only; #1, Agent Memory Leaderboard (industry textual, 2026-08)._
+   -  [MemoraX Code](https://code.memorax.net/)
+      [[code](https://github.com/memorax-ai/memorax-code)]
+      _Coding-agent memory product—not a text-chatbot memory layer—that carries engineering experience, repository knowledge, preferences, and procedures across tasks and sessions._
+
+-  [MemoryLake](https://www.memorylake.ai/en)
+   [[blog](https://www.memorylake.ai/en/blogs)]
+
+-  [Supermemory](https://supermemory.ai/)
+   [[code](https://github.com/supermemoryai/supermemory)]
+   [[docs](https://supermemory.ai/docs)]
+   _Memory API, hosted or free self-hosted; SDKs, MCP server, and dashboard are MIT, but the memory engine ships only as a prebuilt binary._
+
+-  [Memories.ai](https://memories.ai/)
+   [[research](https://memories.ai/research)]
+   [[paper](https://memories.ai/research/Camera)]
+   [[blog](https://memories.ai/blogs)]
+
+-  [Macaron Mind Lab](https://macaron.im/mindlab)
+   [[blog](https://macaron.im/mindlab/research)]
+   [[paper](https://macaron.im/mindlab/publications)]
+
+-  [Mem 2.0](https://get.mem.ai/)
+   [[blog](https://get.mem.ai/blog)]
+
+-  [M-Flow](https://m-flow.ai/)
+
+-  [TwinMind](https://twinmind.com/)
+   [[blog](https://twinmind.com/blogs)]
+
+-  [Penfield](https://www.penfield.app/)
+   [[blog](https://penfieldlabs.substack.com/)]
+
+-  [Sonzai](https://sonz.ai/)
+
+-  [Threadline](https://threadline.to)
+   [[partial-code](https://github.com/vidursharma202-del/threadline-mcp)]
+   [[schema](https://github.com/vidursharma202-del/context-schema)]
+   [[docs](https://threadline.to/docs)]
+
+-  [Remio](https://remio.ai/)
+   _Local-first personal knowledge base that indexes files, webpages, recordings, notes, emails, and messages for agent retrieval via search and RAG._
+
+-  [AccInt](https://accint.xyz)
+   [[partial-code](https://github.com/maxbaluev/accreted-intelligence)]
+   _Local-first MCP Work Model for coding agents that retrieves scored memory, records actions, and credits real outcomes; engine is a closed-source binary._
+
+-  [Agentage Memory](https://memory.agentage.io)
+   _Remote MCP memory server (OAuth 2.1 + PKCE + DCR) giving Claude, Cursor, and ChatGPT one shared markdown memory mirrored locally as files you own._
+
+-  [screenpipe](https://screenpipe.com)
+   [[source-available](https://github.com/screenpipe/screenpipe)]
+   [[license](https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md)]
+   [[docs](https://docs.screenpi.pe)]
+   _Local-first work memory that captures screen, audio, input, browser, and meeting context for search and agent retrieval._
+
+-  [Firekeep](https://firekeep.ai/)
+   [[source-available](https://github.com/kapella-hub/FirekeepHQ)]
+   [[license](https://github.com/kapella-hub/FirekeepHQ/blob/main/LICENSE)]
+   [[docs](https://firekeep.ai/docs.html)]
+   _Self-hosted shared memory, working context, coordination, and evidence for Claude Code, Codex, Kiro, OpenCode, and other MCP clients._
+
+-  [ORANO](https://oranoai.com/)
+   [[docs](https://oranoai.com/mcp)]
+   [[blog](https://oranoai.com/blog/personal-mcp-context-ai-agents.html)]
+   _Consumer app that distills saved Reels, videos, articles, and PDFs into projects and memory facts that the user's agent reads over a read-only MCP server._
+
+-  [Wontopos (Tablet 2)](https://wontopos.com/)
+   [[paper](https://arxiv.org/abs/2608.23920)]
+   [[eval](https://github.com/wontopos/beam1m-tablet-2)]
+   _Memory API with no language model in the retrieval path; paper-reported 95.7% LongMemEval-S, 95.2% recall@5 over 70 language pairs, and BEAM-1M 67.5% with published harness._
+
+-  [Perseus Vault (formerly Mimir)](https://perseus.observer/vault/)
+   [[docs](https://perseus.observer/vault/mcp-reference/)]
+   _Local MCP memory server as a single Rust binary: SQLite FTS5 plus vector hybrid search, AES-256-GCM at rest; GitHub source repository not publicly accessible (2026-09)._
+
+-  [ContextStream](https://contextstream.io)
+   [[partial-code](https://github.com/contextstream/mcp-server)]
+   [[docs](https://contextstream.io/docs/mcp)]
+   [[eval](https://contextstream.io/benchmarks)]
+   _Hosted MCP context layer for coding agents: persistent decisions and lessons, semantic code search, post-compaction recovery; MIT-licensed Rust client, hosted backend closed-source._
+
+### Archival
+
+_Projects that are inactive or whose claims have been disputed by third parties. Status labels link to the evidence and note when the status was last checked._
+
+-  [MemPalace](https://github.com/MemPalace/mempalace) ⚠️ Disputed (third-party critiques challenge the project's core claims; last checked 2026-07)
+   [[code](https://github.com/milla-jovovich/mempalace)]
+   [[critique1](https://www.youtube.com/watch?v=WlxNNvDHJkE), [critique2](https://penfieldlabs.substack.com/p/milla-jovovich-just-released-an-ai)]
+   _Developed by actress [Milla Jovovich](https://en.wikipedia.org/wiki/Milla_Jovovich) and her friends_
+
+-  [Memvid](https://www.memvid.com/) ⚠️ Disputed (technical critique raised in GitHub issues, since deleted but archived; last checked 2026-07)
+   [[code](https://github.com/Olow304/memvid)]
+   [[critique (archived)](https://web.archive.org/web/20250807093442/https://github.com/Olow304/memvid/issues/49)]
+
+-  [Memary](https://kingjulio8238.github.io/memarydocs/) ❄️ Inactive (no significant development activity; last checked 2026-07)
+   [[code](https://github.com/kingjulio8238/memary)]
+
+---
+
+## 📖 Tutorials
+
+#### 🗓️ 2026
+
+ - **[Agent Memory Techniques](https://github.com/NirDiamant/Agent_Memory_Techniques)** (NirDiamant): 30 runnable Jupyter notebooks covering conversation buffers, vector stores, knowledge graphs, episodic and semantic memory, Mem0, MemGPT/Letta, Zep, Graphiti, and LoCoMo benchmarks
+     [[code](https://github.com/NirDiamant/Agent_Memory_Techniques)]
+
+- **[Choose an agent-memory architecture](https://sir-ad.github.io/awesome-memory/guide.html)** (sir-ad): Decision guide mapping four memory jobs to five architecture patterns, minimum controls, evaluation baselines, and primary research.
+
+- **[Tools, Actions, Memory, and Context](https://books.bloo-mind.ai/masact/ch-04-tools-actions-environments)** †: Chapter 4 of the textbook _[Multi-Agent Systems: A Contemporary Treatment](https://books.bloo-mind.ai/masact/)_.
+
+#### 🗓️ 2025
+
+ - **[ACM SIGIR-AP 2025](https://www.sigir-ap.org/sigir-ap-2025/) Tutorial: [Conversational Agents: From RAG to LTM](https://sites.google.com/view/ltm-tutorial)** †
+     [[paper](https://dl.acm.org/doi/10.1145/3767695.3769671)]
+     [[code](https://github.com/TeleAI-UAGI/Awesome-Agent-Memory)]
+
+ - Daily Dose of DS: A Practical Deep Dive Into Memory Optimization for Agentic Systems
+     [[Part-A](https://www.dailydoseofds.com/ai-agents-crash-course-part-15-with-implementation/)]
+     [[Part-B](https://www.dailydoseofds.com/ai-agents-crash-course-part-16-with-implementation/)]
+     [[Part-C](https://www.dailydoseofds.com/ai-agents-crash-course-part-17-with-implementation/)]
+
+---
+
+## 📚 Surveys
+
+#### 🗓️ 2026
+
+- **[Rethinking Memory Mechanisms of Foundation Agents in the Second Half: A Survey](https://arxiv.org/abs/2602.06052)**
+    [[code](https://github.com/AgentMemoryWorld/Awesome-Agent-Memory)]
+
+- **[Memory in the LLM Era: Modular Architectures and Strategies within a Unified Framework](https://arxiv.org/abs/2604.01707)**
+    [[code](https://github.com/Yanchen398/Memory-in-the-LLM-Era)]
+
+- **[From Storage to Experience: A Survey on the Evolution of LLM Agent Memory Mechanisms](https://arxiv.org/abs/2605.06716)**
+    [[code](https://github.com/FeishuLuo/Evolving-LLM-Agent-Memory-Survey)]
+
+- **[Toward Efficient Agents: Memory, Tool Learning, and Planning](https://arxiv.org/abs/2601.14192)**
+    [[code](https://github.com/yxf203/Awesome-Efficient-Agents)]
+
+- **[Anatomy of Agentic Memory: Taxonomy and Empirical Analysis of Evaluation and System Limitations](https://arxiv.org/abs/2602.19320)**
+    [[code](https://github.com/FredJiang0324/Anatomy-of-Agentic-Memory)]
+
+- [Memory for Large Language Models](https://arxiv.org/abs/2607.25380)
+
+- [LLM Agent Memory: A Survey from a Unified Representation–Management Perspective](https://www.preprints.org/manuscript/202603.0359)
+
+- [Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Emerging Frontiers](https://arxiv.org/abs/2603.07670)
+
+- [Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/abs/2604.08224)
+
+- [Survey on AI Memory: Theories, Taxonomies, Evaluations, and Emerging Trends](https://github.com/BAI-LAB/Survey-on-AI-Memory/blob/main/Survey%20on%20AI%20Memory.pdf)
+
+- [The AI Hippocampus: How Far are We From Human Memory?](https://arxiv.org/abs/2601.09113)
+
+#### 🗓️ 2025
+
+- **[AI Meets Brain: Memory Systems from Cognitive Neuroscience to Autonomous Agents](https://arxiv.org/abs/2512.23343)**
+    [[code](https://github.com/AgentMemory/Huaman-Agent-Memory)]
+
+- **[Memory in the Age of AI Agents](https://arxiv.org/abs/2512.13564)**
+    [[code](https://github.com/Shichun-Liu/Agent-Memory-Paper-List)]
+
+- **[Rethinking Memory in AI: Taxonomy, Operations, Topics, and Future Directions](https://arxiv.org/abs/2505.00675)**
+    [[code](https://github.com/Elvin-Yiming-Du/Survey_Memory_in_AI)]
+
+- [From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs](https://arxiv.org/abs/2504.15965)
+
+- [Cognitive Memory in Large Language Models](https://arxiv.org/abs/2504.02441)
+
+- [Advances and Challenges in Foundation Agents: From Brain-Inspired Intelligence to Evolutionary, Collaborative, and Safe Systems (Chapter 3)](https://arxiv.org/abs/2504.01990)
+
+- [Human-inspired Perspectives: A Survey on AI Long-term Memory](https://arxiv.org/abs/2411.00489)
+
+#### 🗓️ 2024
+
+- **[A Survey on the Memory Mechanism of Large Language Model based Agents](https://arxiv.org/abs/2404.13501)**
+    [[code](https://github.com/nuster1128/LLM_Agent_Memory_Survey)]
+
+---
+
+## 📏 Benchmarks
+
+### 💬 Plain-Text Benchmarks
+
+#### 🗓️ 2026
+
+- **[Agent Memory Leaderboard](https://agentmemories.ai/home)**
+    [[code](https://github.com/AML-memory/agent-memory-leaderboard)]
+    _Public evaluation platform: participants expose Add/Search APIs and are scored on textual-memory and coding-agent-memory tracks._
+
+- **[Agent Memory Benchmark (AMB)](https://agentmemorybenchmark.ai/)**
+    [[code](https://github.com/vectorize-io/agent-memory-benchmark)]
+    _Open harness and leaderboard scoring memory providers on accuracy, latency, and token cost over six datasets; built by Vectorize, whose Hindsight is among the providers._
+
+- **OmniMemEval**
+    [[code](https://github.com/MemTensor/OmniMemEval)]
+
+- **[Are We Ready For An Agent-Native Memory System?](https://arxiv.org/abs/2606.24775)**
+    (The MemoryData Paper)
+   [[code](https://github.com/OpenDataBox/MemoryData)]
+
+- **[Locomo-Plus: Beyond-Factual Cognitive Memory Evaluation Framework for LLM Agents](https://arxiv.org/abs/2602.10715)**
+    [[code](https://github.com/xjtuleeyf/Locomo-Plus)]
+
+- **LoCoMo Refined: Recalibrating LoCoMo with Stricter LLM Judging and A Cleaned Dataset**
+    [[code](https://github.com/mem-eval-suite/LoCoMo_refined)]
+
+- **Agent-Memory Integrity Benchmark**
+    [[code](https://github.com/DanceNitra/agent-memory-integrity)]
+
+- **[Cost and Accuracy of Long-Term Memory in Distributed Multi-Agent Systems Based on Large Language Models](https://arxiv.org/abs/2601.07978)**
+    [[code](https://github.com/wolffbe/dmas-memory)]
+
+#### 🗓️ 2025
+
+- **[Beyond a Million Tokens: Benchmarking and Enhancing Long-Term Memory in LLMs](https://arxiv.org/abs/2510.27246)**
+    (The BEAM Paper)
+    [[code](https://github.com/mohammadtavakoli78/BEAM)]
+    [[data](https://huggingface.co/datasets/Mohammadta/BEAM)]
+
+- **[MOOM: Maintenance, Organization and Optimization of Memory in Ultra-Long Role-Playing Dialogues](https://arxiv.org/abs/2509.11860)**
+    (The ZH-4O Paper)
+    [[code](https://github.com/cows21/MOOM-Roleplay-Dialogue)]
+    [[data](https://github.com/cows21/MOOM-Roleplay-Dialogue/tree/main/data)]
+
+- **[Know Me, Respond to Me: Benchmarking LLMs for Dynamic User Profiling and Personalized Responses at Scale](https://arxiv.org/abs/2504.14225)**
+    (The PersonaMem and ImplicitPersona Paper)
+    [[code](https://github.com/bowen-upenn/PersonaMem)]
+    [[data1](https://huggingface.co/datasets/bowen-upenn/PersonaMem)]
+    [[data2](https://huggingface.co/datasets/bowen-upenn/ImplicitPersona)]
+
+- **[Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions](https://arxiv.org/abs/2507.05257)**
+    (The MemoryAgentBench Paper)
+    [[code](https://github.com/HUST-AI-HYZ/MemoryAgentBench)]
+    [[data](https://huggingface.co/datasets/ai-hyz/MemoryAgentBench)]
+
+- **[LifelongAgentBench: Evaluating LLM Agents as Lifelong Learners](https://arxiv.org/abs/2505.11942)**
+    [[code](https://github.com/caixd-220529/LifelongAgentBench)]
+    [[data](https://huggingface.co/datasets/csyq/LifelongAgentBench)]
+
+- **[NoLiMa: Long-Context Evaluation Beyond Literal Matching](https://arxiv.org/abs/2502.05167)**
+    [[code](https://github.com/adobe-research/NoLiMa)]
+    [[data](https://github.com/adobe-research/NoLiMa/tree/main/data)]
+
+- **[HaluMem: Evaluating Hallucinations in Memory Systems of Agents](http://arxiv.org/abs/2511.03506)**
+    [[code](https://github.com/MemTensor/HaluMem)]
+    [[data](https://huggingface.co/datasets/IAAR-Shanghai/HaluMem)]
+
+- **[LongBench v2: Towards Deeper Understanding and Reasoning on Realistic Long-context Multitasks](https://arxiv.org/abs/2412.15204)**
+    [[code](https://github.com/THUDM/LongBench)]
+
+- **[Minerva: A Programmable Memory Test Benchmark for Language Models](https://arxiv.org/abs/2502.03358)**
+    [[code](https://github.com/microsoft/minerva_memory_test)]
+
+- **[MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents](https://arxiv.org/abs/2506.21605)**
+    [[code](https://github.com/import-myself/Membench)]
+
+- [Evo-Memory: Benchmarking LLM Agent Test-time Learning with Self-Evolving Memory](https://arxiv.org/abs/2511.20857)
+
+- [OdysseyBench: Evaluating LLM Agents on Long-Horizon Complex Office Application Workflows](https://arxiv.org/abs/2508.09124)
+
+#### 🗓️ 2024
+
+- **[LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory](https://arxiv.org/abs/2410.10813)**
+   [[data](https://github.com/xiaowu0162/LongMemEval)]
+
+- **[Evaluating Very Long-Term Conversational Memory of LLM Agents](https://arxiv.org/abs/2402.17753)**
+    (The LoCoMo Paper)
+    [[code](https://github.com/snap-research/LoCoMo)]
+    [[data](https://github.com/snap-research/locomo/tree/main/data)]
+
+- **[∞Bench: Extending Long Context Evaluation Beyond 100K Tokens](https://arxiv.org/abs/2402.13718v3)**
+    [[code](https://github.com/OpenBMB/InfiniteBench)]
+
+- **[LongBench: A Bilingual, Multitask Benchmark for Long Context Understanding](https://arxiv.org/abs/2308.14508)**
+    [[code](https://github.com/THUDM/LongBench)]
+
+#### 🗓️ 2023
+
+- **[StoryBench: A Multifaceted Benchmark for Continuous Story Visualization](https://proceedings.neurips.cc/paper_files/paper/2023/hash/f63f5fbed1a4ef08c857c5f377b5d33a-Abstract-Datasets_and_Benchmarks.html)**
+    [[code](https://github.com/google/storybench)]
+
+### 🎬 Multimodal Benchmarks
+
+#### 🗓️ 2026
+
+- **[MBench: A Comprehensive Benchmark on Memory Capability for Video World Models](https://arxiv.org/abs/2606.00793)**
+    [[code](https://github.com/study-overflow/MBench)]
+    [[proj](https://peanutup.github.io/MBench-project/)]
+    [[leaderboard](https://huggingface.co/spaces/study-overflow/MBench_Leaderboard)]
+
+- **[RoboMemArena: A Comprehensive and Challenging Robotic Memory Benchmark](https://arxiv.org/abs/2605.10921)**
+    [[code](https://github.com/OpenHelix-Team/RoboMemArena)]
+    [[data](https://huggingface.co/datasets/RoboMemArenaBenchmark/RoboMemArena)]
+    [[proj](https://robomemarena.github.io/)]
+    [[leaderboard](https://robomemarena.github.io/leaderboard.html)]
+
+- **[DeepImageSearch: Benchmarking Multimodal Agents for Context-Aware Image Retrieval in Visual Histories](https://arxiv.org/abs/2602.10809)**
+    [[code](https://github.com/RUC-NLPIR/DeepImageSearch)]
+    [[data](https://huggingface.co/datasets/RUC-NLPIR/DISBench)]
+    [[leaderboard](https://huggingface.co/spaces/RUC-NLPIR/DISBench-Leaderboard)]
+
+- **[Persona-MME: A Benchmark for Long-Term Personalized Multimodal LLMs](https://arxiv.org/abs/2604.13074)**
+    [[code](https://github.com/MiG-NJU/PersonaVLM)]
+    [[data](https://huggingface.co/datasets/ClareNie/Persona-MME)]
+
+- **[RMBench: Memory-Dependent Robotic Manipulation Benchmark with Insights into Policy Design](https://arxiv.org/abs/2603.01229)**
+    [[code](https://github.com/robotwin-Platform/rmbench)]
+    [[proj](https://rmbench.github.io/)]
+
+- **[According to Me: Long-Term Personalized Referential Memory QA (ATM-Bench)](https://arxiv.org/abs/2603.01990)**
+    [[code](https://github.com/JingbiaoMei/ATM-Bench)]
+    [[data](https://huggingface.co/datasets/Jingbiao/ATM-Bench)]
+    [[proj](https://atmbench.github.io/)]
+    [[leaderboard](https://atmbench.github.io/leaderboard.html)]
+
+#### 🗓️ 2025
+
+-  **[TeleEgo: Benchmarking Egocentric AI Assistants in the Wild](https://arxiv.org/abs/2510.23981)** †
+     [[code](https://github.com/TeleAI-UAGI/TeleEgo)]
+     [[data](https://huggingface.co/datasets/David0219/TeleEgo)]
+     [[proj](https://programmergg.github.io/jrliu.github.io/)]
+     [[leaderboard](https://programmergg.github.io/jrliu.github.io/#leaderboard)]
+
+-  **[LVBench: An Extreme Long Video Understanding Benchmark](https://arxiv.org/abs/2406.08035)**
+     [[code](https://github.com/zai-org/LVBench)]
+
+- **[Video-MME: The First-Ever Comprehensive Evaluation Benchmark of Multi-modal LLMs in Video Analysis](https://arxiv.org/abs/2405.21075v3)**
+    [[code](https://github.com/MME-Benchmarks/Video-MME)]
+
+#### 🗓️ 2024
+
+-  **[MovieChat+: Question-aware Sparse Memory for Long Video Question Answering](https://arxiv.org/abs/2404.17176)**
+     [[code](https://github.com/rese1f/MovieChat)]
+
+-  **[CinePile: A Long Video Question Answering Dataset and Benchmark](https://arxiv.org/abs/2405.08813)**
+     [[code](https://huggingface.co/datasets/tomg-group-umd/cinepile)]
+
+-  **[LongVideoBench: A Benchmark for Long-Context Interleaved Video-Language Understanding](https://arxiv.org/abs/2407.15754)**
+     [[code](https://github.com/longvideobench/LongVideoBench)]
+
+#### 🗓️ 2023
+
+- **[EgoSchema: A Diagnostic Benchmark for Very Long-form Video Language Understanding](https://proceedings.neurips.cc/paper_files/paper/2023/file/90ce332aff156b910b002ce4e6880dec-Paper-Datasets_and_Benchmarks.pdf)**
+    [[code](https://github.com/egoschema/egoschema)]
+
+- [LvBench: A Benchmark for Long-form Video Understanding with Versatile Multi-modal Question Answering](https://arxiv.org/abs/2312.04817)
+
+### 🎮 Dynamic Benchmarks & Simulation Environments
+
+#### 🗓️ 2026
+
+- **[SEAGym: An Evaluation Environment for Self-Evolving LLM Agents](https://arxiv.org/abs/2606.17546)**
+    [[code](https://github.com/antropy-research/SEAGym)]
+
+- **[Beyond Static Dialogues: Benchmarking Realistic, Heterogeneous, and Evolving Long-Term Memory](https://arxiv.org/abs/2605.31086)**
+    [[code](https://github.com/microsoft/RHELM)]
+    [[data](https://huggingface.co/datasets/microsoft/RHELM)]
+    [[proj](https://microsoft.github.io/RHELM/)]
+
+- **[AMemGym: Interactive Memory Benchmarking for Assistants in Long-Horizon Conversations](https://arxiv.org/abs/2603.01966)**
+    [[code](https://github.com/AGI-Eval-Official/amemgym)]
+    [[proj](https://agi-eval-official.github.io/amemgym/)]
+
+- [StreamMemBench: Streaming Evaluation of Agent Memory for Future-Oriented Assistance](https://arxiv.org/abs/2606.14571)
+
+- **[agent-memory-bench](https://giulioder.github.io/agent-memory-bench/)**
+    [[code](https://github.com/GiulioDER/agent-memory-bench)]
+    [[data](https://huggingface.co/datasets/Gde05/agent-memory-bench-corpus)]
+    _Preregistered harness scoring memory layers for coding agents by executing task checkers rather than judging text; the author's own RE-call is among the arms._
+
+#### 🗓️ 2025
+
+- **[MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems](https://arxiv.org/abs/2510.17281)**
+    [[code](https://github.com/LittleDinoC/MemoryBench)]
+    [[data](https://huggingface.co/datasets/THUIR/MemoryBench)]
+
+- **[ARE: Scaling Up Agent Environments and Evaluations](https://arxiv.org/abs/2509.17158)**
+    (The Gaia2 Paper)
+    [[code](https://github.com/facebookresearch/meta-agents-research-environments)]
+
+#### 🗓️ 2024
+
+- **[AppWorld: A Controllable World of Apps and People for Benchmarking Interactive Coding Agents](https://arxiv.org/abs/2407.18901)**
+    [[code](https://github.com/StonyBrookNLP/appworld)]
+
+---
+
+## 🔤 Papers - Nonparametric Memory
+
+### 📝 Text Memory
+
+#### 🗓️ 2026
+
+- **[StructMem: Structured Memory for Long-Horizon Behavior in LLMs](https://arxiv.org/abs/2604.21748)**
+    [[code](https://github.com/zjunlp/LightMem)]
+
+- **[Memory Efficiency and Resource-Rational Encoding in Sentence Processing](https://aclanthology.org/2026.acl-long.1550/)**
+    [[code](https://github.com/weijiexu-charlie/resource-rational-encoding)]
+
+- **[AutoMem: Automated Learning of Memory as a Cognitive Skill](https://arxiv.org/abs/2607.01224)**
+    [[code](https://github.com/autoLearnMem/AutoMem)]
+    [[proj](https://autolearnmem.github.io/)]
+
+- **[Mandol: An Agglomerative Agent Memory System for Long-Term Conversations](https://arxiv.org/abs/2606.29778)**
+    [[code](https://github.com/AgentCombo/Mandol)]
+
+- **[RecMem: Recurrence-based Memory Consolidation for Efficient and Effective Long-Running LLM Agents](https://arxiv.org/abs/2605.16045)**
+    [[code](https://github.com/CaiusDai/RecMem)]
+
+- **[Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval](https://arxiv.org/abs/2603.09250)** (RF-Mem)
+    [[code](https://github.com/Applied-Machine-Learning-Lab/ICLR2026_RF-Mem)]
+
+- **[MemPrivacy: Privacy-Preserving Personalized Memory Management for Edge-Cloud Agents](https://arxiv.org/abs/2605.09530)**
+    [[code](https://github.com/MemTensor/MemPrivacy)]
+
+- **[Beyond RAG for Agent Memory: Retrieval by Decoupling and Aggregation](https://arxiv.org/abs/2602.02007)**
+    [[code](https://github.com/HU-xiaobai/xMemory)]
+
+- **[MemSearch-o1: Empowering Large Language Models with Reasoning-Aligned Memory Growth in Agentic Search](https://arxiv.org/abs/2604.17265)**
+    [[code](https://github.com/Applied-Machine-Learning-Lab/ACL2026_MemSearch-o1)]
+
+- **[SimpleMem: Efficient Lifelong Memory for LLM Agents](https://arxiv.org/abs/2601.02553)**
+    [[code](https://github.com/aiming-lab/SimpleMem)]
+
+- **[Beyond Similarity Search: Tenure and the Case for Structured Belief State in LLM Memory](https://arxiv.org/abs/2605.11325)**
+    [[code](https://github.com/jeffreyflynt/tenure)]
+
+- [Self-Correcting Long-Horizon Search Agents via Tree-Structured Memory](https://arxiv.org/abs/2608.10676) (ReTree)
+
+- [MemCompiler: Compile, Don't Inject -- State-Conditioned Memory for Embodied Agents](https://arxiv.org/abs/2605.07594)
+
+- [Agentic Memory Enhanced Recursive Reasoning for Root Cause Localization in Microservices](https://arxiv.org/abs/2601.02732) (AMER-RCL)
+
+#### 🗓️ 2025
+
+- **[LightMem: Lightweight and Efficient Memory-Augmented Generation](https://arxiv.org/abs/2510.18866)**
+   [[code](https://github.com/zjunlp/LightMem)]
+
+- **[What Deserves Memory: Adaptive Memory Distillation for LLM Agents](https://arxiv.org/abs/2508.03341)**
+    [[code](https://github.com/nemori-ai/nemori)]
+
+- **[Human-inspired Episodic Memory for Infinite Context LLMs](https://arxiv.org/abs/2407.09450)**
+    [[code](https://github.com/em-llm/EM-LLM-model)]
+
+- **[MemWeaver: A Hierarchical Memory from Textual Interactive Behaviors for Personalized Generation](https://arxiv.org/abs/2510.07713)**
+    [[code](https://github.com/fishsure/MemWeaver)]
+
+- [Evaluating Long-Term Memory for Long-Context Question Answering](https://arxiv.org/abs/2510.23730)
+
+- [Text2Mem: A Unified Memory Operation Language for Memory Operating System](https://arxiv.org/abs/2509.11145)
+
+- [O-Mem: Omni Memory System for Personalized, Long Horizon, Self-Evolving Agents](https://arxiv.org/abs/2511.13593)
+
+- [Omne-R1: Learning to Reason with Memory for Multi-hop Question Answering](https://arxiv.org/abs/2508.17330)
+
+- [In Prospect and Retrospect: Reflective Memory Management for Long-term Personalized Dialogue Agents](https://aclanthology.org/2025.acl-long.413/)
+
+- [SEDM: Scalable Self-Evolving Distributed Memory for Agents](https://arxiv.org/abs/2509.09498)
+
+- [MemoRAG: Boosting Long Context Processing with Global Memory-Enhanced Retrieval Augmentation](https://arxiv.org/abs/2409.05591)
+
+- [Towards LifeSpan Cognitive Systems](https://arxiv.org/abs/2409.13265)
+
+#### 🗓️ 2024
+
+- **[Compress to Impress: Unleashing the Potential of Compressive Memory in Real-World Long-Term Conversations](https://arxiv.org/abs/2402.11975)**
+    [[code](https://github.com/nuochenpku/COMEDY)]
+
+- **[Agent Workflow Memory](https://arxiv.org/abs/2409.07429)**
+    [[code](https://github.com/zorazrw/agent-workflow-memory)]
+
+- **[MemoryBank: Enhancing Large Language Models with Long-Term Memory](https://arxiv.org/abs/2305.10250)**
+    [[code](https://github.com/zhongwanjun/MemoryBank-SiliconFriend)]
+
+- **[Toward Conversational Agents with Context and Time Sensitive Long-term Memory](https://arxiv.org/abs/2406.00057)**
+    [[data](https://github.com/Zyphra/TemporalMemoryDataset)]
+
+- [InfLLM: Training-Free Long-Context Extrapolation for LLMs with an Efficient Context Memory](https://arxiv.org/abs/2402.04617)
+
+#### 🗓️ 2023
+
+- [RET-LLM: Towards a General Read-Write Memory for Large Language Models](https://arxiv.org/abs/2305.14322)
+
+### 🌐 Graph Memory
+
+#### 🗓️ 2026
+
+- **[Rethinking Memory as Continuously Evolving Connectivity](https://arxiv.org/abs/2605.28773)** (FluxMem)
+    [[code](https://github.com/zjunlp/LightMem)]
+
+- **[GraphPlanner: Graph Memory-Augmented Agentic Routing for Multi-Agent LLMs](https://arxiv.org/abs/2604.23626)**
+    [[code](https://github.com/ulab-uiuc/GraphPlanner)]
+
+- **[HyperMem: Hypergraph Memory for Long-Term Conversations](https://arxiv.org/abs/2604.08256)**
+    [[code](https://github.com/EverMind-AI/EverOS)]
+
+- **[Mnemis: Dual-Route Retrieval on Hierarchical Graphs for Long-Term LLM Memory](https://arxiv.org/abs/2602.15313)**
+    [[code](https://github.com/microsoft/Mnemis)]
+
+- **[MAGMA: A Multi-Graph based Agentic Memory Architecture for AI Agents](https://arxiv.org/abs/2601.03236)**
+    [[code](https://github.com/FredJiang0324/MAMGA)]
+
+- **[TraceMem: Weaving Narrative Memory Schemata from User Conversational Traces](https://arxiv.org/abs/2602.09712)**
+    [[code](https://github.com/YimingShu-teay/TraceMem)]
+
+- **[PlugMem: A Task-Agnostic Plugin Memory Module for LLM Agents](https://arxiv.org/abs/2603.03296)**
+    [[code](https://github.com/TIMAN-group/PlugMem)]
+
+- [SAGE: A Self-Evolving Agentic Graph-Memory Engine for Structure-Aware Associative Memory](https://arxiv.org/abs/2605.12061)
+
+#### 🗓️ 2025
+
+- **[From RAG to Memory: Non-Parametric Continual Learning for Large Language Models](https://arxiv.org/abs/2502.14802)**
+    [[code](https://github.com/OSU-NLP-Group/HippoRAG)]
+
+- **[MIRIX: Multi-Agent Memory System for LLM-Based Agents](https://arxiv.org/abs/2507.07957)**
+    [[code](https://github.com/Mirix-AI/MIRIX)]
+
+- **[From Single to Multi-Granularity: Toward Long-Term Memory Association and Selection of Conversational Agents](https://arxiv.org/abs/2505.19549)** (MemGAS)
+    [[code](https://github.com/quqxui/MemGAS)]
+
+- **[Hierarchical Memory Organization for Wikipedia Generation](https://aclanthology.org/2025.acl-long.1423/)**
+    [[code](https://github.com/eugeneyujunhao/mog)]
+
+- [From Experience to Strategy: Empowering LLM Agents with Trainable Graph Memory](https://www.arxiv.org/abs/2511.07800)
+
+- [Bridging Intuitive Associations and Deliberate Recall: Empowering LLM Personal Assistant with Graph-Structured Long-term Memory](https://aclanthology.org/2025.findings-acl.901/)
+
+- [HiAgent: Hierarchical Working Memory Management for Solving Long-Horizon Agent Tasks with Large Language Model](https://aclanthology.org/2025.acl-long.1575/)
+
+- [Optimizing the Interface Between Knowledge Graphs and LLMs for Complex Reasoning](https://arxiv.org/abs/2505.24478)
+
+#### 🗓️ 2024
+
+- **[HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models](https://arxiv.org/abs/2405.14831)**
+    [[code](https://github.com/OSU-NLP-Group/HippoRAG)]
+
+- **[AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents](https://arxiv.org/abs/2407.04363)**
+    [[code](https://github.com/AIRI-Institute/AriGraph)]
+
+### 🎥 Multimodal Memory (for Understanding)
+
+#### 🗓️ 2026
+
+- **[VoiceMem: Streaming Dual-Brain Memory for Real-Time Interaction](https://arxiv.org/abs/2608.26005)**
+    [[code](https://github.com/xzf-thu/VoiceMem)]
+    [[proj](https://xzf-thu.github.io/VoiceMem/)]
+
+- **[MemGUI-Agent: An End-to-End Long-Horizon Mobile GUI Agent with Proactive Context Management](https://arxiv.org/abs/2606.19926)**
+    [[code](https://github.com/kwai/MemGUI-Agent)]
+    [[proj](https://memgui-agent.github.io/)]
+
+- **[FluxMem: Adaptive Hierarchical Memory for Streaming Video Understanding](https://arxiv.org/abs/2603.02096)**
+    [[code](https://github.com/YiwengXie/FluxMem)]
+    [[proj](https://yiwengxie.com/FluxMem/)]
+
+- **[SE-GA: Memory-Augmented Self-Evolution for GUI Agents](https://arxiv.org/abs/2605.16883)**
+    [[code](https://github.com/jinshilong-dev/SE-GA)]
+
+- **[Visual Agentic Memory: Enabling Online Long Video Understanding via Online Indexing, Hierarchical Memory, and Agentic Retrieval](https://arxiv.org/abs/2605.16481)**
+    [[code](https://github.com/yiliu-li/Visual-Agentic-Memory)]
+
+- **[PersonaVLM: Long-Term Personalized Multimodal LLMs](https://arxiv.org/abs/2604.13074)**
+    [[code](https://github.com/MiG-NJU/PersonaVLM)]
+    [[proj](https://PersonaVLM.github.io)]
+
+- **[Omni-SimpleMem: Autoresearch-Guided Discovery of Lifelong Multimodal Agent Memory](https://arxiv.org/abs/2604.01007)**
+    [[code](https://github.com/aiming-lab/SimpleMem)]
+
+- **[HERMES: KV Cache as Hierarchical Memory for Efficient Streaming Video Understanding](https://arxiv.org/abs/2601.14724)**
+    [[code](https://github.com/haowei-freesky/HERMES)]
+
+- **[EventMemAgent: Hierarchical Event-Centric Memory for Online Video Understanding with Adaptive Tool Use](https://arxiv.org/abs/2602.15329)**
+    [[code](https://github.com/lingcco/EventMemAgent)]
+
+- **[M2A: Multimodal Memory Agent with Dual-Layer Hybrid Memory for Long-Term Personalized Interactions](https://arxiv.org/abs/2602.07624)**
+    [[code](https://github.com/Little-Fridge/M2A)]
+
+- [NativeMEM: Native Memory Compression for Long-Horizon Robotic Manipulation](https://arxiv.org/abs/2607.06678)
+    [[proj](https://opendrivelab.com/NativeMEM/)]
+
+#### 🗓️ 2025
+
+- **[WorldMM: Dynamic Multimodal Memory Agent for Long Video Reasoning](https://arxiv.org/abs/2512.02425)**
+    [[code](https://github.com/wgcyeo/WorldMM)]
+
+- **[MemVerse: Multimodal Memory for Lifelong Learning Agents](https://arxiv.org/abs/2512.03627)**
+    [[code](https://github.com/KnowledgeXLab/MemVerse)]
+
+- **[MGA: Memory-Driven GUI Agent for Observation-Centric Interaction](https://arxiv.org/abs/2510.24168)**
+    [[code](https://github.com/MintyCo0kie/MGA4OSWorld)]
+
+- **[Seeing, Listening, Remembering, and Reasoning: A Multimodal Agent with Long-Term Memory](https://arxiv.org/abs/2508.09736)**
+    [[code](https://github.com/bytedance-seed/m3-agent)]
+
+- **[HippoMM: Hippocampal-inspired Multimodal Memory for Long Audiovisual Event Understanding](https://arxiv.org/abs/2504.10739)**
+    [[code](https://github.com/linyueqian/HippoMM)]
+
+- [Infinite Video Understanding](https://www.arxiv.org/abs/2507.09068)
+
+- [Episodic Memory Representation for Long-form Video Understanding](https://arxiv.org/abs/2508.09486)
+
+- [Multi-RAG: A Multimodal Retrieval-Augmented Generation System for Adaptive Video Understanding](https://arxiv.org/abs/2505.23990)
+
+- [Contextual Experience Replay for Self-Improvement of Language Agents](https://arxiv.org/abs/2506.06698)
+
+#### 🗓️ 2024
+
+- **[VideoAgent: Long-form Video Understanding with Large Language Model as Agent](https://arxiv.org/abs/2403.10517)**
+    [[code](https://github.com/HKUDS/VideoAgent)]
+
+- **[VideoChat-Flash: Hierarchical Compression for Long-Context Video Modeling](https://arxiv.org/abs/2501.00574)**
+    [[code](https://github.com/OpenGVLab/VideoChat-Flash)]
+
+- **[LongVLM: Efficient Long Video Understanding via Large Language Models](https://arxiv.org/abs/2404.03384)**
+    [[code](https://github.com/ziplab/LongVLM)]
+
+- **[KARMA: Augmenting Embodied AI Agents with Long-and-short Term Memory Systems](https://arxiv.org/abs/2409.14908)**
+    [[code](https://github.com/WZX0Swarm0Robotics/KARMA/tree/master)]
+
+### 🎥 Multimodal Memory (for Generation)
+
+#### 🗓️ 2026
+
+- **[LayerRecall: A State-Conditioned Memory Router for Long-Horizon Consistency in Video Generation](https://arxiv.org/abs/2608.28460)**
+    [[code](https://github.com/Yixuan-Ding-ZJU/LayerRecall)]
+    [[proj](https://yixuan-ding-zju.github.io/LayerRecall_Web/)]
+
+- **[MemSlides: A Hierarchical Memory Driven Agent Framework for Personalized Slide Generation with Multi-turn Local Revision](https://arxiv.org/abs/2606.17162)**
+    [[code](https://github.com/huohua325/Memslides)]
+    [[proj](https://memslides.github.io/)]
+
+- **[LoGeR: Long-Context Geometric Reconstruction with Hybrid Memory](https://arxiv.org/abs/2603.03269)**
+    [[code](https://github.com/Junyi42/LoGeR)]
+
+- [OneStory: Coherent Multi-Shot Video Generation with Adaptive Memory](https://arxiv.org/abs/2512.07802)
+
+#### 🗓️ 2025
+
+- **[MagicWorld: Towards Long-Horizon Stability for Interactive Video World Exploration](https://arxiv.org/abs/2511.18886)**
+    [[code](https://github.com/vivoCameraResearch/Magic-World)]
+
+- **[Yume-1.5: A Text-Controlled Interactive World Generation Model](https://arxiv.org/abs/2512.22096)**
+    [[code](https://github.com/stdstu12/YUME)]
+
+- **[StoryMem: Multi-shot Long Video Storytelling with Memory](https://arxiv.org/abs/2512.19539)**
+    [[code](https://github.com/Kevin-thu/StoryMem)]
+
+- **[MemFlow: Flowing Adaptive Memory for Consistent and Efficient Long Video Narratives](https://arxiv.org/abs/2512.14699)**
+    [[code](https://github.com/KlingTeam/MemFlow)]
+
+- **[MotionRAG: Motion Retrieval-Augmented Image-to-Video Generation](http://arxiv.org/abs/2509.26391)**
+    [[code](https://github.com/MCG-NJU/MotionRAG)]
+
+- **[VideoRAG: Retrieval-Augmented Generation over Video Corpus](http://arxiv.org/abs/2501.05874)**
+    [[code](https://github.com/starsuzi/VideoRAG)]
+
+- [Pretraining Frame Preservation in Autoregressive Video Memory Compression](https://arxiv.org/abs/2512.23851)
+
+- [EgoLCD: Egocentric Video Generation with Long Context Diffusion](https://arxiv.org/abs/2512.04515)
+
+- [Pack and Force Your Memory: Long-form and Consistent Video Generation](http://arxiv.org/abs/2510.01784)
+
+- [Video World Models with Long-term Spatial Memory](http://arxiv.org/abs/2506.05284)
+
+- [Mixture of Contexts for Long Video Generation](http://arxiv.org/abs/2508.21058)
+
+- [Context as Memory: Scene-Consistent Interactive Long Video Generation with Memory Retrieval](http://arxiv.org/abs/2506.03141)
+
+## 🔢 Papers - Parametric Memory
+
+#### 🗓️ 2026
+
+- **[Conditional Memory via Scalable Lookup: A New Axis of Sparsity for Large Language Models](https://arxiv.org/abs/2601.07372)**
+    (The DeepSeek **Engram** Paper)
+    [[code](https://github.com/deepseek-ai/Engram/)]
+    + **[Beyond Conditional Computation: Retrieval-Augmented Genomic Foundation Models with Gengram](https://arxiv.org/abs/2601.22203)**
+        [[code](https://github.com/zhejianglab/Gengram/)]
+    + [Pooling Engram Conditional Memory in Large Language Models using CXL](https://arxiv.org/abs/2603.10087)
+    + [A Collision-Free Hot-Tier Extension for Engram-Style Conditional Memory: A Controlled Study of Training Dynamics](https://arxiv.org/abs/2601.16531)
+
+- **[Metis: Memory Foundation Model](https://arxiv.org/abs/2607.26760)**
+    [[code](https://github.com/MemTensor/Metis)]
+    [[model](https://huggingface.co/collections/IAAR-Shanghai/metis)]
+
+- **[δ-mem: Efficient Online Memory for Large Language Models](https://arxiv.org/abs/2605.12357)**
+    [[code](https://github.com/MindLab-Research/delta-Mem)]
+
+- **[Language Model Memory and Memory Models for Language](https://arxiv.org/abs/2602.13466)**
+    [[code](https://github.com/blbadger/memorymodels)]
+
+- **[MSA: Memory Sparse Attention for Efficient End-to-End Memory Model Scaling to 100M Tokens](https://github.com/EverMind-AI/MSA/blob/main/paper/MSA__Memory_Sparse_Attention_for_Efficient_End_to_End_Memory_Model_Scaling_to_100M_Tokens.pdf)**
+    [[code](https://github.com/EverMind-AI/MSA)]
+
+- **[GradMem: Learning to Write Context into Memory with Test-Time Gradient Descent](https://arxiv.org/abs/2603.13875)**
+    [[code](https://github.com/yurakuratov/gradmem)]
+
+- **[MeKi: Memory-based Expert Knowledge Injection for Efficient LLM Scaling](https://arxiv.org/abs/2602.03359)**
+    [[code](https://github.com/ningding-o/MeKi)]
+
+- **[STEM: Scaling Transformers with Embedding Modules](https://arxiv.org/abs/2601.10639)**
+    [[code](https://github.com/Infini-AI-Lab/STEM)]
+
+- **[MeMo: Memory as a Model](https://arxiv.org/abs/2605.15156)**
+    [[code](https://github.com/arunv3rma/MeMo)]
+
+- [Language Models Need Sleep: Learning to Self-Modify and Consolidate Memories](https://arxiv.org/abs/2606.03979)
+
+- [Do Language Models Need Sleep? Offline Recurrence for Improved Online Inference](https://arxiv.org/abs/2605.26099)
+
+- [Training Transformers for KV Cache Compressibility](https://arxiv.org/abs/2605.05971)
+
+- [Contextual Agentic Memory is a Memo, Not True Memory](https://arxiv.org/abs/2604.27707)
+
+- [Memory Caching: RNNs with Growing Memory](https://arxiv.org/abs/2602.24281)
+
+- [Fast-weight Product Key Memory](https://arxiv.org/abs/2601.00671)
+
+#### 🗓️ 2025
+
+- **[MoM: Linear Sequence Modeling with Mixture-of-Memories](https://arxiv.org/abs/2502.13685)**
+    [[code](https://github.com/OpenSparseLLMs/MoM)]
+
+- **[MLP Memory: Language Modeling with Retriever-pretrained External Memory](https://arxiv.org/abs/2508.01832)**
+    [[code](https://github.com/Rubin-Wei/MLPMemory)]
+
+- **[Memory Decoder: A Pretrained, Plug-and-Play Memory for Large Language Models](https://www.arxiv.org/abs/2508.09874)**
+    [[code](https://github.com/LUMIA-Group/MemoryDecoder)]
+
+- **[Little By Little: Continual Learning via Incremental Mixture of Rank-1 Associative Memory Experts](https://arxiv.org/abs/2506.21035)**
+    [[code](https://github.com/Artificer-AI-Lab/MoRAM)]
+    [[proj](https://artificer-ai-lab.github.io/MoRAM/)]
+
+- [How Much Do Language Models Memorize?](https://arxiv.org/abs/2505.24832)
+
+- [Memory Retrieval and Consolidation in Large Language Models through Function Tokens](https://arxiv.org/abs/2510.08203)
+
+- [Nested Learning: The Illusion of Deep Learning Architectures](https://openreview.net/forum?id=nbMeRvNb7A)
+
+- [Improving Factuality with Explicit Working Memory](https://arxiv.org/abs/2412.18069)
+
+- [R3Mem: Bridging Memory Retention and Retrieval via Reversible Compression](https://arxiv.org/abs/2502.15957)
+
+- [May the Memory Be With You: Efficient and Infinitely Updatable State for Large Language Models](https://dl.acm.org/doi/abs/10.1145/3721146.3721951)
+
+- [MeMo: Towards Language Models with Associative Memory Mechanisms](https://aclanthology.org/2025.findings-acl.785/)
+
+- [REFRAG: Rethinking RAG based Decoding](https://arxiv.org/abs/2509.01092)
+
+- [EpMAN: Episodic Memory AttentioN for Generalizing to Longer Contexts](https://aclanthology.org/2025.acl-long.574/)
+
+- [Disentangling Memory and Reasoning Ability in Large Language Models](https://aclanthology.org/2025.acl-long.84/)
+
+#### 🗓️ 2024
+
+- **[InfLLM: Training-Free Long-Context Extrapolation for LLMs with an Efficient Context Memory](https://arxiv.org/abs/2402.04617)**
+    [[code](https://github.com/thunlp/InfLLM)]
+
+- **[MA-LMM: Memory-Augmented Large Multimodal Model for Long-Term Video Understanding](https://arxiv.org/abs/2404.05726)**
+    [[code](https://github.com/boheumd/MA-LMM)]
+
+- **[MemoryLLM: Towards Self-Updatable Large Language Models](https://arxiv.org/abs/2402.04624)**
+    [[code](https://github.com/wangyu-ustc/MemoryLLM)]
+
+- **[WISE: Rethinking the Knowledge Memory for Lifelong Model Editing of Large Language Models](https://arxiv.org/abs/2405.14768)**
+    [[code](https://github.com/zjunlp/EasyEdit)]
+
+- [Titans: Learning to Memorize at Test Time](https://arxiv.org/abs/2501.00663)
+
+- [Memory3: Language Modeling with Explicit Memory](https://arxiv.org/abs/2407.01178v1)
+
+- [Infinite-LLM: Efficient LLM Service for Long Context with DistAttention and Distributed KVCache](https://arxiv.org/abs/2401.02669)
+
+- [MemServe: Context Caching for Disaggregated LLM Serving with Elastic Memory Pool](https://arxiv.org/abs/2406.17565)
+
+- [WISE: Rethinking the Knowledge Memory for Lifelong Model Editing of Large Language Models](https://arxiv.org/abs/2405.14768/)
+
+- [Ultra-Sparse Memory Network](https://arxiv.org/abs/2411.12364)
+
+#### 🗓️ 2023
+
+- **[Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174)**
+    [[code](https://github.com/Victorwz/LongMem)]
+
+- **[Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)**
+    [[code](https://github.com/vllm-project/vllm)]
+
+## 📈 Papers - Memory for Agent Evolution
+
+### 🧭 Reinforcement Learning & Continual Learning
+
+#### 🗓️ 2026
+
+- **[Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems](https://arxiv.org/abs/2609.02750)**
+    [[code](https://github.com/YihangChen9/Bilevel-Coordinated-Reflection)]
+
+- **[Large Discovery Models: Empirically-grounded Model-Based Open-Ended Search](https://arxiv.org/abs/2608.15669)**
+    [[code](https://github.com/yzailab/Large-Discovery-Models)]
+    [[proj](https://largediscovery.net/)]
+    [[blog](https://largediscovery.net/blog/)]
+
+- **[SEED: Self-Evolving On-Policy Distillation for Agentic Reinforcement Learning](https://arxiv.org/abs/2607.14777)**
+    [[code](https://github.com/jinyangwu/SEED)]
+    [[proj](https://jinyangwu.github.io/seed/)]
+
+- **[MLEvolve: A Self-Evolving Framework for Automated Machine Learning Algorithm Discovery](https://arxiv.org/abs/2606.06473)**
+    [[code](https://github.com/InternScience/MLEvolve)]
+
+- **[EvoTrainer: Co-Evolving LLM Policies and Training Harnesses for Autonomous Agentic Reinforcement Learning](https://arxiv.org/abs/2606.03108)**
+    [[code](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/EvoTrainer)]
+
+- **[SkillOpt: Executive Strategy for Self-Evolving Agent Skills](https://arxiv.org/abs/2605.23904)**
+    [[code](https://github.com/microsoft/SkillOpt)]
+
+- **[Learning, Fast and Slow: Towards LLMs That Adapt Continually](https://arxiv.org/abs/2605.12484)**
+    [[code](https://rishabhtiwari.ai/projects/fst/code/)]
+    [[blog](https://gepa-ai.github.io/gepa/blog/2026/05/11/learning-fast-and-slow/)]
+
+- **[CASCADE: Case-Based Continual Adaptation for Large Language Models During Deployment](https://arxiv.org/abs/2605.06702)**
+    (The DTLBench Paper)
+    [[code](https://github.com/guosyjlu/CASCADE)]
+
+- **[Memory Intelligence Agent](https://arxiv.org/abs/2604.04503)**
+    [[code](https://github.com/ECNU-SII/MIA)]
+
+- **[PASK: Toward Intent-Aware Proactive Agents with Long-Term Memory](https://arxiv.org/abs/2604.08000)**
+    [[code](https://github.com/xzf-thu/Pask)]
+
+- **[Toward Autonomous Long-Horizon Engineering for ML Research](https://arxiv.org/abs/2604.13018)**
+    [[code](https://github.com/AweAI-Team/AiScientist)]
+
+- **[OpenClaw-RL: Train Any Agent Simply by Talking](https://arxiv.org/abs/2603.10165)**
+    [[code](https://github.com/Gen-Verse/OpenClaw-RL)]
+
+- **[Memento-Skills: Let Agents Design Agents](https://arxiv.org/abs/2603.18743)**
+    [[code](https://github.com/Memento-Teams/Memento-Skills)]
+
+- **[Memento 2: Learning by Stateful Reflective Memory](https://arxiv.org/abs/2512.22716)**
+    [[code](https://github.com/Agent-on-the-Fly/Memento)]
+
+- **[Principled Fast and Meta Knowledge Learners for Continual Reinforcement Learning](https://arxiv.org/abs/2603.00903)** (FAME)
+    [[code](https://github.com/datake/FAME)]
+
+- **[MemSkill: Learning and Evolving Memory Skills for Self-Evolving Agents](https://arxiv.org/abs/2602.02474)**
+    [[code](https://github.com/ViktorAxelsen/MemSkill)]
+
+- **[ProcMEM: Learning Reusable Procedural Memory from Experience via Non-Parametric PPO for LLM Agents](https://arxiv.org/abs/2602.01869)**
+    [[code](https://github.com/Miracle1207/ProcMEM)]
+
+- **[MemRL: Self-Evolving Agents via Runtime Reinforcement Learning on Episodic Memory](https://arxiv.org/abs/2601.03192)**
+    [[code](https://github.com/MemTensor/MemRL)]
+
+- [UniMem: Complementary Episodic-to-Parametric Memory for Boundary-Agnostic Task Streams](https://arxiv.org/abs/2607.26017)
+
+- [Self-Evolving Multi-Agent Systems via Decentralized Memory](https://arxiv.org/abs/2605.22721)
+
+- [Meta-Cognitive Memory Policy Optimization for Long-Horizon LLM Agents](https://arxiv.org/abs/2605.30159)
+
+- [Mem-π: Adaptive Memory through Learning When and What to Generate](https://arxiv.org/abs/2605.21463)
+
+- [Useful Memories Become Faulty When Continuously Updated by LLMs](https://arxiv.org/abs/2605.12978)
+
+- [MEMTIER: Tiered Memory Architecture and Retrieval Bottleneck Analysis for Long-Running Autonomous AI Agents](https://arxiv.org/abs/2605.03675)
+
+- [Neural Garbage Collection: Learning to Forget while Learning to Reason](https://arxiv.org/abs/2604.18002)
+
+- [AVO: Agentic Variation Operators for Autonomous Evolutionary Search](https://arxiv.org/abs/2603.24517)
+
+- [Why the Brain Consolidates: Predictive Forgetting for Optimal Generalisation](https://arxiv.org/abs/2603.04688)
+
+- [Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents](https://arxiv.org/abs/2601.01885)
+
+#### 🗓️ 2025
+
+- **[End-to-End Test-Time Training for Long Context](https://arxiv.org/abs/2512.23675)**
+    [[code](https://github.com/test-time-training/e2e)]
+
+- **[ML-Master: Towards AI-for-AI via Integration of Exploration and Reasoning](https://arxiv.org/abs/2506.16499)**
+    [[code](https://github.com/sjtu-sai-agents/ML-Master)]
+
+- **[MemEvolve: Meta-Evolution of Agent Memory Systems](https://arxiv.org/abs/2512.18746)**
+    [[code](https://github.com/bingreeky/MemEvolve)]
+
+- **[Remember Me, Refine Me: A Dynamic Procedural Memory Framework for Experience-Driven Agent Evolution](https://arxiv.org/abs/2512.10696)**
+    [[code](https://github.com/agentscope-ai/ReMe)]
+
+- **[EvolveR: Self-Evolving LLM Agents through an Experience-Driven Lifecycle](https://arxiv.org/abs/2510.16079)**
+    [[code](https://github.com/KnowledgeXLab/EvolveR)]
+
+- **[Learning on the Job: An Experience-Driven, Self-Evolving Agent for Long-Horizon Tasks](https://arxiv.org/abs/2510.08002)**
+    [[code](https://github.com/KnowledgeXLab/MUSE)]
+
+- **[Mem-α: Learning Memory Construction via Reinforcement Learning](https://arxiv.org/abs/2509.25911)**
+    [[code](https://github.com/wangyu-ustc/Mem-alpha)]
+
+- **[Memento: Fine-tuning LLM Agents without Fine-tuning LLMs](https://arxiv.org/abs/2508.16153)**
+    [[code](https://github.com/Agent-on-the-Fly/Memento)]
+
+- **[Goal-Directed Search Outperforms Goal-Agnostic Memory Compression in Long-Context Memory Tasks](https://arxiv.org/abs/2511.21726)**
+    [[code](https://arxiv.org/abs/2511.21726)]
+
+- **[General Agentic Memory via Deep Research](https://arxiv.org/abs/2511.18423)**
+    [[code](https://github.com/VectorSpaceLab/general-agentic-memory/)]
+
+- **[AgentEvolver: Towards Efficient Self-Evolving Agent System](https://arxiv.org/abs/2511.10395)**
+    [[code](https://github.com/modelscope/AgentEvolver)]
+
+- **[FLEX: Continuous Agent Evolution via Forward Learning from Experience](https://arxiv.org/abs/2511.06449)**
+    [[code](https://github.com/GenSI-THUAIR/FLEX)]
+
+- **[MemAgent: Reshaping Long-Context LLM with Multi-Conv RL-based Memory Agent](https://arxiv.org/abs/2507.02259)**
+    [[code](https://github.com/BytedTsinghua-SIA/MemAgent)]
+
+- [Beyond Heuristics: A Decision-Theoretic Framework for Agent Memory Management](https://arxiv.org/abs/2512.21567)
+
+- [Nested Learning: The Illusion of Deep Learning Architecture](https://abehrouz.github.io/files/NL.pdf)
+  [[blog](https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/)]
+
+- [LightSearcher: Efficient DeepSearch via Experiential Memory](https://www.arxiv.org/abs/2512.06653)
+
+- [Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning](https://arxiv.org/abs/2508.19828)
+
+- [Latent Learning: Episodic Memory Complements Parametric Learning by Enabling Flexible Reuse of Experiences](https://arxiv.org/abs/2509.16189)
+
+- [Evo-Memory: Benchmarking LLM Agent Test-time Learning with Self-Evolving Memory](https://arxiv.org/abs/2511.20857)
+
+- [ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory](https://arxiv.org/abs/2509.25140)
+
+- [Long Term Memory: The Foundation of AI Self-Evolution](https://arxiv.org/abs/2410.15665)
+
+- [REFRAG: Rethinking RAG based Decoding](https://arxiv.org/abs/2509.01092)
+
+- [MemGen: Weaving Generative Latent Memory for Self-Evolving Agents](https://arxiv.org/abs/2509.24704)
+
+- [ReSum: Unlocking Long-Horizon Search Intelligence via Context Summarization](https://arxiv.org/abs/2509.13313)
+
+- [MARC: Memory-Augmented RL Token Compression for Efficient Video Understanding](https://arxiv.org/pdf/2510.07915)
+
+- [Continual Learning via Sparse Memory Finetuning](https://arxiv.org/abs/2510.15103)
+
+- [Task-Core Memory Management and Consolidation for Long-term Continual Learning](https://arxiv.org/abs/2505.09952)
+
+### 🧩 Context Engineering & Harness Engineering
+
+#### 🗓️ 2026
+
+- **[Recursive Experiential–Working Memory Evolution for Long-Horizon Agent Harnesses](https://arxiv.org/abs/2608.24876)** (Recuris)
+    [[code](https://github.com/Gen-Verse/Recuris)]
+
+- **[TokenPilot: Cache-Efficient Context Management for LLM Agents](https://arxiv.org/abs/2606.17016)**
+    [[code](https://github.com/zjunlp/LightRSI)]
+
+- **[Code as Agent Harness](https://arxiv.org/abs/2605.18747)**
+    [[code](https://github.com/YennNing/Awesome-Code-as-Agent-Harness-Papers)]
+
+- **[SWE-Pruner: Self-Adaptive Context Pruning for Coding Agents](https://arxiv.org/abs/2601.16746)**
+    [[code](https://github.com/Ayanami1314/swe-pruner)]
+
+- **[LCM: Lossless Context Management](https://papers.voltropy.com/LCM)**
+    [[code](https://github.com/Martian-Engineering/lossless-claw)]
+
+- **[CL-bench: A Benchmark for Context Learning](https://arxiv.org/abs/2602.03587)**
+    [[code](https://github.com/Tencent-Hunyuan/CL-bench)]
+
+- **[Self-Harness: Harnesses That Improve Themselves](https://arxiv.org/abs/2606.09498)**
+    [[code](https://github.com/qzzqzzb/Self-Harness)]
+
+- [Is Grep All You Need? How Agent Harnesses Reshape Agentic Search](https://arxiv.org/abs/2605.15184)
+
+- [M\*: Every Task Deserves Its Own Memory Harness](https://arxiv.org/abs/2604.11811)
+
+#### 🗓️ 2025
+
+- **[Everything is Context: Agentic File System Abstraction for Context Engineering](https://arxiv.org/abs/2512.05470)**
+    [[code](https://github.com/AIGNE-io/aigne-framework)]
+
+- **[AgentFold: Long-Horizon Web Agents with Proactive Context Management](https://arxiv.org/abs/2510.24699)**
+    [[code](https://github.com/Alibaba-NLP/DeepResearch)]
+
+- **[ACON: Optimizing Context Compression for Long-horizon LLM Agents](https://arxiv.org/abs/2510.00615)**
+    [[code](https://github.com/microsoft/acon)]
+
+- [Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models](https://arxiv.org/abs/2510.04618)
+
+## 🔬 Papers - Memory in Cognitive Science
+
+#### 🗓️ 2026
+
+- **[A Neural Network Model of Free Recall Learns Multiple Memory Strategies](https://www.nature.com/articles/s42256-026-01274-0)**
+    [[code](https://github.com/Veritaria/rnn-free-recall)]
+
+- [Subspace Communication in the Hippocampal–Retrosplenial Axis](https://www.nature.com/articles/s41586-026-10481-z)
+
+- [A Neural State Space for Episodic Memories](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(25)00284-0)
+
+- [Dopaminergic Processes Predict Temporal Distortions in Event Memory](https://www.nature.com/articles/s41467-026-69950-8)
+
+- [Awareness as the Heart of Working Memory](https://www.sciencedirect.com/science/article/pii/S1364661326000756)
+
+- [Neural Activations and Representations during Episodic versus Semantic Memory Retrieval](https://www.nature.com/articles/s41562-025-02390-4)
+
+- [Distinct Neuronal Populations in the Human Brain Combine Content and Context](https://www.nature.com/articles/s41586-025-09910-2)
+
+#### 🗓️ 2025
+
+- [Neural Population Activity for Memory: Properties, Computations, and Codes](https://www.cell.com/neuron/fulltext/S0896-6273(25)00854-2)
+
+- [How Prediction Error Drives Memory Updating: Role of Locus Coeruleus–Hippocampal Interactions](https://www.cell.com/trends/neurosciences/abstract/S0166-2236(25)00189-4)
+
+- [Towards Large Language Models with Human-Like Episodic Memory](https://www.cell.com/trends/cognitive-sciences/abstract/S1364-6613(25)00179-2)
+
+#### 🗓️ 2024
+
+- [A Generative Model of Memory Construction and Consolidation](https://www.nature.com/articles/s41562-023-01799-z)
+
+---
+
+## 🔒 Memory Security & Defense
+
+- **[Agent Memory Guard](https://owasp.org/www-project-agent-memory-guard/)**
+    [[code](https://github.com/OWASP/www-project-agent-memory-guard)]
+    _OWASP runtime defense layer that screens agent memory writes for poisoning: multi-layer validation with semantic anomaly detection, entropy scoring, and provenance verification._
+
+- [From Untrusted Input to Trusted Memory: A Systematic Study of Memory Poisoning Attacks in LLM Agents](https://arxiv.org/abs/2606.04329)
+    (The MPBench Paper)
+
+- **[inspeximus (formerly mnemo) poisoning probes](https://github.com/DanceNitra/agora/tree/main/research/probes)**
+    [[attack](https://github.com/DanceNitra/agora/blob/main/research/probes/memory_defense_layer_probe.py)]
+    [[defense](https://github.com/DanceNitra/agora/blob/main/research/probes/memory_gate_defense_probe.py)]
+    _Runnable probe scripts demonstrating that provenance written into a memory record is forgeable, and that a retrieval-time corroboration gate raises the cost of memory-poisoning attacks._
+
+---
+
+## 📰 Articles
+
+#### 🗓️ 2026
+
+- [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/)
+
+- [221 Agents: Multi-Agent Coordination Lessons](https://web.archive.org/web/20260427040129/https://blog.kinthai.ai/221-agents-multi-agent-coordination-lessons) (archived; original site currently unreachable)
+
+- [OpenClaw Multi-Tenancy: Why VM-Per-User Does Not Scale](https://web.archive.org/web/20260429092735/https://blog.kinthai.ai/openclaw-multi-tenancy-why-vm-per-user-doesnt-scale) (archived; original site currently unreachable)
+
+#### 🗓️ 2025
+
+- [Survey of AI Agent Memory Frameworks](https://www.graphlit.com/blog/survey-of-ai-agent-memory-frameworks)
+
+#### 🗓️ 2024
+
+- [Memory in Language Model-Enabled Agents](https://yuweisunn.github.io/blog-1-06-24.html)
+
+- [Mastering LLM Memory: A Comprehensive Guide](https://www.strongly.ai/blog/mastering-llm-memory-a-comprehensive-guide.html)
+
+#### 🗓️ 2023
+
+- [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/)
+
+---
+
+## 👥 Workshops
+
+#### 🗓️ 2026
+
+- [CoRL 2026](https://2026.corl.org/): [Workshop on Memory for Robot Foundation Models (RoboMem)](https://corl2026-memory.github.io/)
+  [[schedule](https://corl2026-memory.github.io/#schedule)]
+- [ICLR 2026](https://iclr.cc/Conferences/2026): [Workshop on Memory for LLM-Based Agentic Systems (MemAgents)](https://sites.google.com/view/memagent-iclr26/)
+  [[proceedings](https://openreview.net/group?id=ICLR.cc/2026/Workshop/MemAgent)]
+
+#### 🗓️ 2025
+
+- [ACL 2025](https://2025.aclweb.org/): [The First Workshop on Large Language Model Memorization (L2M2)](https://sites.google.com/view/memorization-workshop)
+  [[proceedings](https://aclanthology.org/volumes/2025.l2m2-1/)]
+
+---
+
+## 📑 Citation
+
+To cite this collection itself, use the metadata in [`CITATION.cff`](CITATION.cff) (GitHub's "Cite this repository" button), or:
+
+```bibtex
+@misc{zhang2025awesomeagentmemory,
+        author = {Zhang, Dell and Sun, Changzhi and Luo, Jixiang and Chen, Xiangyu and Li, Xuelong},
+        title = {Awesome Agent Memory: Curated Systems, Benchmarks, and Papers on Memory for {LLMs}/{MLLMs}},
+        year = {2025},
+        howpublished = {\url{https://github.com/TeleAI-UAGI/Awesome-Agent-Memory}}
+}
+```
+
+This list grew out of the maintainers' SIGIR-AP 2025 tutorial, which you can cite as the related publication:
+
+```bibtex
+@inproceedings{zhangConversationalAgentsRAG2025,
+        author = {Zhang, Dell and Feng, Yue and Liu, Haiming and Sun, Changzhi and Luo, Jixiang and Chen, Xiangyu and Li, Xuelong},
+        title = {Conversational Agents: From {RAG} to {LTM}},
+        year = {2025},
+        isbn = {9798400722189},
+        doi = {10.1145/3767695.3769671},
+        booktitle = {Proceedings of the 2025 Annual International ACM SIGIR Conference on Research and Development in Information Retrieval in the Asia Pacific Region (SIGIR-AP)},
+        pages = {447–452},
+        location = {China}
+}
+```
+
+---
+
+## Star History
+
+Regenerated weekly by [a scheduled workflow](.github/workflows/star-history.yml); the previous [star-history.com](https://www.star-history.com/) live chart broke when GitHub restricted the stargazers API to repo admins and collaborators in June 2026.
+
+---
+
+**If you find this page helpful, please give it a ⭐️ — starring also keeps updates in your GitHub feed.**
+
+Made with ❤️ by [Bloo-Mind AI Ltd](https://www.bloo-mind.ai/) and the Ubiquitous AGI team at TeleAI.

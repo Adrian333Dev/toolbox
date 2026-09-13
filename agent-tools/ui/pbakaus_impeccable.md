@@ -2,7 +2,7 @@
 description: "The design language that makes your AI harness better at design."
 type: skill
 url: https://github.com/pbakaus/impeccable
-stars: 67.7k
+stars: 67.8k
 language: JavaScript
 pushed: 2026-09-11
 ---

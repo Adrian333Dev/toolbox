@@ -2,7 +2,7 @@
 description: "Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors"
 type: mcp
 url: https://github.com/upstash/context7
-stars: 61.9k
+stars: 62k
 language: TypeScript
 pushed: 2026-09-11
 ---

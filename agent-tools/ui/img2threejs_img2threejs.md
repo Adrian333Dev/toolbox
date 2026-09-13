@@ -4,7 +4,7 @@ type: skill
 url: https://github.com/img2threejs/img2threejs
 stars: 15.9k
 language: Python
-pushed: 2026-09-07
+pushed: 2026-09-13
 ---
 
 ## Notes

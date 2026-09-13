@@ -2,7 +2,7 @@
 description: "Write HTML. Render video. Built for agents."
 type: cli, library
 url: https://github.com/heygen-com/hyperframes
-stars: 49.3k
+stars: 49.5k
 language: TypeScript
 pushed: 2026-09-13
 ---

@@ -2,7 +2,7 @@
 description: "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote."
 type: skill
 url: https://github.com/DietrichGebert/ponytail
-stars: 136k
+stars: 137k
 language: JavaScript
 pushed: 2026-09-07
 ---

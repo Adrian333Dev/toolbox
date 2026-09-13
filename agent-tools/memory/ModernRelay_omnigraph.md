@@ -4,7 +4,7 @@ type: cli
 url: https://github.com/ModernRelay/omnigraph
 stars: 1.1k
 language: Rust
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

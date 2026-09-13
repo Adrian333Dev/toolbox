@@ -2,7 +2,7 @@
 description: "Remotion Agent Skills for Claude Code"
 type: plugin
 url: https://github.com/remotion-dev/claude-code-plugin
-stars: 18
+stars: 19
 language: JavaScript
 pushed: 2026-09-12
 ---

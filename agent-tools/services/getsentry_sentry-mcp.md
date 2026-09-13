@@ -2,7 +2,7 @@
 description: "An MCP server for interacting with Sentry via LLMs."
 type: mcp
 url: https://github.com/getsentry/sentry-mcp
-stars: 848
+stars: 849
 language: TypeScript
 pushed: 2026-09-12
 ---

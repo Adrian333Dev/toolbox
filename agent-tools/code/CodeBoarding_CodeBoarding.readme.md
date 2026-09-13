@@ -1,0 +1,222 @@
+# CodeBoarding
+
+See what your AI is building before it breaks.
+
+CodeBoarding gives developers and coding agents a visual map of a codebase. It combines static analysis with LLM reasoning to generate architecture diagrams, component-level documentation, and navigable outputs you can use in your IDE, CI, and docs.
+
+[Website](https://codeboarding.org)  · [Web platform](https://app.codeboarding.org) · [Open VSX extension](https://open-vsx.org/extension/CodeBoarding/codeboarding)  · [Explore examples](https://codeboarding.org/diagrams) · [VS Code extension](https://marketplace.visualstudio.com/items?itemName=Codeboarding.codeboarding)  · [GitHub Action](https://github.com/marketplace/actions/codeboarding-action) · [Discord](https://discord.gg/T5zHTJYFuy)
+
+Install the extension from Open VSX.
+
+## Few use cases:
+
+- Keep architecture visible while agents code.
+- Review AI-generated changes with system context before they turn into hidden debt.
+- Understand large repositories faster with layered diagrams and component breakdowns.
+- Share the same visual model across local workflows, IDEs, pull requests, and docs.
+
+## What CodeBoarding generates
+
+- High-level system architecture diagrams.
+- Deeper component diagrams for important subsystems.
+- Markdown documentation in `.codeboarding/`.
+- Mermaid output that is easy to embed in docs and PRs.
+- Incremental updates when only part of the codebase changes.
+
+## How it works
+
+```mermaid
+graph LR
+    Application_Orchestrator_Repository_Manager["Application Orchestrator & Repository Manager"]
+    LLM_Agent_Core["LLM Agent Core"]
+    Static_Code_Analyzer["Static Code Analyzer"]
+    Agent_Tooling_Interface["Agent Tooling Interface"]
+    Incremental_Analysis_Engine["Incremental Analysis Engine"]
+    Documentation_Diagram_Generator["Documentation & Diagram Generator"]
+    Application_Orchestrator_Repository_Manager -- "Orchestrator initiates analysis workflow, leveraging incremental updates based on detected code changes." --> Incremental_Analysis_Engine
+    Application_Orchestrator_Repository_Manager -- "Orchestrator passes project context and triggers the main analysis workflow for the LLM Agent." --> LLM_Agent_Core
+    Incremental_Analysis_Engine -- "Incremental engine requests static analysis for specific code segments (new or changed)." --> Static_Code_Analyzer
+    Static_Code_Analyzer -- "Static analyzer provides analysis results to the incremental engine for caching." --> Incremental_Analysis_Engine
+    LLM_Agent_Core -- "LLM Agent invokes specialized tools to interact with the codebase and analysis data." --> Agent_Tooling_Interface
+    Agent_Tooling_Interface -- "Agent tools query the static analysis engine for detailed code insights." --> Static_Code_Analyzer
+    Static_Code_Analyzer -- "Static analysis engine provides requested data to the agent tools." --> Agent_Tooling_Interface
+    LLM_Agent_Core -- "LLM Agent delivers structured analysis insights for documentation and diagram generation." --> Documentation_Diagram_Generator
+    click Application_Orchestrator_Repository_Manager href "https://github.com/CodeBoarding/CodeBoarding/blob/main/.codeboarding/Application_Orchestrator_Repository_Manager.md" "Details"
+    click LLM_Agent_Core href "https://github.com/CodeBoarding/CodeBoarding/blob/main/.codeboarding/LLM_Agent_Core.md" "Details"
+    click Static_Code_Analyzer href "https://github.com/CodeBoarding/CodeBoarding/blob/main/.codeboarding/Static_Code_Analyzer.md" "Details"
+    click Agent_Tooling_Interface href "https://github.com/CodeBoarding/CodeBoarding/blob/main/.codeboarding/Agent_Tooling_Interface.md" "Details"
+    click Incremental_Analysis_Engine href "https://github.com/CodeBoarding/CodeBoarding/blob/main/.codeboarding/Incremental_Analysis_Engine.md" "Details"
+    click Documentation_Diagram_Generator href "https://github.com/CodeBoarding/CodeBoarding/blob/main/.codeboarding/Documentation_Diagram_Generator.md" "Details"
+```
+
+For a deeper architecture walkthrough, see [`.codeboarding/overview.md`](.codeboarding/overview.md).
+
+## Quick start
+
+### Run from source
+
+```bash
+uv sync --frozen
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+python install.py
+python main.py full --local /path/to/repo
+```
+
+### Use the packaged CLI
+
+Requires **Python 3.12 or 3.13**. The recommended install method is [pipx](https://pipx.pypa.io), which keeps the CLI in its own isolated environment:
+
+```bash
+pipx install codeboarding --python python3.12
+codeboarding-setup
+codeboarding full --local /path/to/repo
+```
+
+Or, if you prefer pip, install into a virtual environment (not the global Python):
+
+```bash
+pip install codeboarding --extra-index-url https://pip.codeboarding.org/simple/
+codeboarding-setup
+codeboarding full --local /path/to/repo
+```
+
+Output is written to `/path/to/repo/.codeboarding/`. To explore it interactively, open the
+[web platform](https://app.codeboarding.org) and drop in the generated `analysis.json` — it stays
+in your browser, nothing is uploaded. (The CLI prints this reminder after every successful run.)
+
+To also generate `overview` and one file per expanded component, pass `--render` with one of
+`md`, `html`, `mdx`, or `rst`. Rendering is available after full, incremental, and partial local analyses;
+previously generated files for the selected format are reconciled from a renderer-owned manifest:
+
+```bash
+codeboarding full --local /path/to/repo --render md
+codeboarding incremental --local /path/to/repo --render html
+codeboarding partial --local /path/to/repo --component-id "1.2" --render rst
+```
+
+You can render an existing analysis without rerunning analysis or configuring an LLM:
+
+```bash
+codeboarding-render /path/to/repo/.codeboarding/analysis.json
+# Select a format or output directory:
+codeboarding-render /path/to/analysis.json --format mdx --output-dir /path/to/docs
+
+# From a source checkout in development:
+python codeboarding_cli/render.py ../../demo/markitdown/.codeboarding/analysis.json --format md
+```
+
+`python install.py` and `codeboarding-setup` download language server binaries to `~/.codeboarding/servers/`, shared across projects. Node.js (and its bundled `npm`) is required for the Python, TypeScript, JavaScript, and PHP language servers; if neither `node` nor `CODEBOARDING_NODE_PATH` is set, setup downloads a pinned Node.js runtime into `~/.codeboarding/servers/nodeenv/` automatically.
+
+## Configuration
+
+On first run, CodeBoarding creates `~/.codeboarding/config.toml`. Set one provider there or use environment variables.
+
+```toml
+[provider]
+# openai_api_key            = "sk-..."
+# openai_base_url           = "https://api.example.com/v1"  # any OpenAI-compatible gateway
+# anthropic_api_key         = "sk-ant-..."
+# anthropic_base_url        = "https://resource.services.ai.azure.com/anthropic"  # Azure Foundry
+# google_api_key            = "AIza..."
+# vercel_api_key            = "vck_..."
+# aws_bearer_token_bedrock  = "..."
+# ollama_base_url           = "http://localhost:11434"
+# openrouter_api_key        = "sk-..."
+# orcarouter_api_key        = "sk-orca-..."   # model routing gateway (https://www.orcarouter.ai)
+# litellm_base_url          = "http://localhost:4000"  # LiteLLM proxy server URL (required)
+# litellm_api_key           = "sk-..."           # LiteLLM proxy server key (optional)
+
+[llm]
+# agent_model = "gemini-3.8-flash"
+```
+
+`openai_base_url` points CodeBoarding at any OpenAI-compatible gateway, including LM Studio. Set its model ID with `agent_model`; CodeBoarding adapts its prompts for the model families already represented by its provider defaults, including Qwen. The equivalent shell variables are `OPENAI_BASE_URL`, `OPENAI_API_KEY`, and `AGENT_MODEL`.
+
+`anthropic_base_url` points the Anthropic client at a compatible Messages API, including Azure Foundry Claude deployments. Set the deployment key as `anthropic_api_key` and use canonical Anthropic model IDs such as `claude-sonnet-5` for `agent_model` so CodeBoarding selects the correct model capabilities and prompts.
+
+Shell environment variables such as `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GOOGLE_API_KEY`, and `OLLAMA_BASE_URL` take precedence over the config file. For private repositories, set `GITHUB_TOKEN` in your environment.
+
+## Common commands
+
+```bash
+# Analyze a local repository
+python main.py full --local ./my-project
+
+# Raise the depth ceiling to auto-expand deeper (rarely needed — a component that
+# outgrows the leaf ceiling is flagged expandable at whatever depth the run stops
+# and can be expanded on demand; --depth-cap is a safety-valve cap, default 3)
+python main.py full --local ./my-project --depth-cap 5
+
+# Re-analyze only changed parts when possible
+python main.py incremental --local ./my-project
+
+# Update a single component by ID
+python main.py partial --local ./my-project --component-id "1.2"
+
+# Analyze a remote GitHub repository
+python main.py full https://github.com/pytorch/pytorch
+```
+
+`--depth-cap` configures `metadata.depth_cap`; `metadata.depth_level` records the
+depth actually reached. The cap is a maximum, not a target depth. `--depth-level`
+is rejected; there is no compatibility alias.
+
+Python callers must use `run_full(..., depth_cap=...)`,
+`build_generator(..., depth_cap=...)`, and `DiagramGenerator(..., depth_cap=...)`.
+The generator attribute is `depth_cap` and the exported default is
+`diagram_analysis.DEFAULT_DEPTH_CAP` (3). The GitHub helper uses `DIAGRAM_DEPTH_CAP`
+and rejects `DIAGRAM_DEPTH_LEVEL`. Telemetry reports configured `depth_cap`, not
+`depth_level`. Readers of analysis results must keep reading `metadata.depth_level`
+for the actual depth. Existing baseline loading behavior is unchanged: prefer
+`metadata.depth_cap`, fall back to legacy `metadata.depth_level`, then use
+`DEFAULT_DEPTH_CAP` if neither exists. This metadata fallback is not a CLI alias.
+
+> **Incremental needs a baseline.** `incremental` diffs the working tree against the previous
+> analysis in `.codeboarding/` (`analysis.json` + `fingerprint.json`). That baseline can live
+> purely locally — a prior `full`/`incremental` run in the same output dir is enough. Commit
+> `.codeboarding/` only if you want the baseline to travel with the branch (so a teammate or a
+> fresh checkout can run incremental too). With no baseline at all — or one that predates content
+> versioning — `incremental` fails fast with "run a full analysis first" rather than silently
+> doing a full run. Static-analysis caches are versioned but not migrated; after a cache-version
+> upgrade, run a full analysis once to reindex.
+
+## Where to use it
+
+- [CLI](https://github.com/CodeBoarding/CodeBoarding) for local analysis, automation, and CI workflows.
+- [Web platform](https://app.codeboarding.org) to explore any analysis in the browser — open a public repo, load an `analysis.json`, or review an architecture diff on a pull request.
+- [VS Code extension](https://marketplace.visualstudio.com/items?itemName=Codeboarding.codeboarding)  for in-editor visual architecture.
+- [GitHub Action](https://github.com/marketplace/actions/codeboarding-action) to keep diagrams updated in CI.
+
+## Supported stack
+
+- Languages: Python, TypeScript, JavaScript, Java, Go, PHP, Rust, C#.
+- LLM providers: OpenAI, Anthropic, Google, Vercel AI Gateway, AWS Bedrock, Ollama, OpenRouter, OrcaRouter, LiteLLM proxy, and more.
+
+## Examples
+
+- Visualized 800+ open-source repositories.
+- Browse generated examples in [GeneratedOnBoardings](https://github.com/CodeBoarding/GeneratedOnBoardings).
+- Try the hosted explorer at [codeboarding.org/diagrams](https://codeboarding.org/diagrams) .
+- Open any public repo that has a committed `.codeboarding/analysis.json` at [app.codeboarding.org](https://app.codeboarding.org) — no install, no login. This repo included: [app.codeboarding.org/CodeBoarding/CodeBoarding](https://app.codeboarding.org/CodeBoarding/CodeBoarding).
+
+## Telemetry
+
+CodeBoarding collects usage telemetry (which command ran, success/failure,
+duration, token cost, repository size and languages, and the account the
+repository belongs to) to help us improve the tool. It is on by default and
+never collects source code, file names, repository names, paths, prompts, model
+outputs, or API keys. Opt out anytime:
+
+```bash
+export CODEBOARDING_TELEMETRY=false   # or: export DO_NOT_TRACK=1
+```
+
+See [TELEMETRY.md](TELEMETRY.md) for the full list of events and properties.
+
+## Contributing
+
+If you want to improve CodeBoarding, open an [issue](https://github.com/CodeBoarding/CodeBoarding/issues) or send a pull request. We welcome improvements to analysis quality, output generators, integrations, and developer experience.
+
+## Vision
+
+CodeBoarding is building an open standard for code understanding: a visual, accurate, high-level representation of a codebase that both humans and agents can use.

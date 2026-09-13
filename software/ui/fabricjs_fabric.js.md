@@ -4,7 +4,7 @@ type: library
 url: https://github.com/fabricjs/fabric.js
 stars: 31.4k
 language: TypeScript
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

@@ -2,9 +2,9 @@
 description: "Beautiful README badges, inspired by shields.io and styled like shadcn/ui."
 type: skill
 url: https://github.com/jal-co/shieldcn
-stars: 885
+stars: 887
 language: TypeScript
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

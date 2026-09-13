@@ -2,7 +2,7 @@
 description: "The awesome collection of OpenClaw skills. 5,400+ skills filtered and categorized from the official OpenClaw Skills Registry.🦞"
 type: index
 url: https://github.com/VoltAgent/awesome-openclaw-skills
-stars: 52.5k
+stars: 52.6k
 language: ""
 pushed: 2026-09-12
 ---

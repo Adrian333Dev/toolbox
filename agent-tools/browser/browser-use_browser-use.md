@@ -4,7 +4,7 @@ type: library
 url: https://github.com/browser-use/browser-use
 stars: 114k
 language: Python
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

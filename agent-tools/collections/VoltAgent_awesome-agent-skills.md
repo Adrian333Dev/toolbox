@@ -2,7 +2,7 @@
 description: "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more."
 type: index
 url: https://github.com/VoltAgent/awesome-agent-skills
-stars: 34.2k
+stars: 34.3k
 language: ""
 pushed: 2026-09-07
 ---

@@ -4,7 +4,7 @@ type: cli, mcp
 url: https://github.com/dembrandt/dembrandt
 stars: 3.5k
 language: TypeScript
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

@@ -2,7 +2,7 @@
 description: "Give Claude the ability to watch any video. /watch downloads, extracts frames, transcribes, hands it all to Claude."
 type: plugin
 url: https://github.com/bradautomates/claude-video
-stars: 17.1k
+stars: 17.2k
 language: Python
 pushed: 2026-07-01
 ---

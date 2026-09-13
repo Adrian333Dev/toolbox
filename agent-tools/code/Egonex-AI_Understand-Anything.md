@@ -2,7 +2,7 @@
 description: "Graphs that teach > graphs that impress. Turn any code into an interactive knowledge graph you can explore, search, and ask questions about. Works with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and more."
 type: plugin
 url: https://github.com/Egonex-AI/Understand-Anything
-stars: 82.3k
+stars: 82.5k
 language: TypeScript
 pushed: 2026-09-12
 ---

@@ -2,7 +2,7 @@
 description: "Codex-first SEO skill suite. 26 workflows, 24 TOML agents, DataForSEO/Gemini/Google/Firecrawl integrations, GEO/AEO, CWV, schema, backlinks, local/maps, and deterministic reports."
 type: skill
 url: https://github.com/AgriciDaniel/codex-seo
-stars: 708
+stars: 711
 language: Python
 pushed: 2026-09-11
 ---

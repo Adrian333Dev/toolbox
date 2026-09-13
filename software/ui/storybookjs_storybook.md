@@ -2,9 +2,9 @@
 description: "Storybook is the industry standard workshop for building, documenting, and testing UI components in isolation"
 type: tooling
 url: https://github.com/storybookjs/storybook
-stars: 91k
+stars: 91.1k
 language: TypeScript
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

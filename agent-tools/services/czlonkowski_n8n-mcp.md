@@ -4,7 +4,7 @@ type: mcp
 url: https://github.com/czlonkowski/n8n-mcp
 stars: 22.9k
 language: TypeScript
-pushed: 2026-09-12
+pushed: 2026-09-13
 ---
 
 ## Notes

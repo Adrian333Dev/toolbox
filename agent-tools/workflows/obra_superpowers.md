@@ -2,7 +2,7 @@
 description: "An agentic skills framework & software development methodology that works."
 type: framework
 url: https://github.com/obra/superpowers
-stars: 285k
+stars: 286k
 language: Shell
 pushed: 2026-09-12
 ---

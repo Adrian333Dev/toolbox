@@ -2,7 +2,7 @@
 description: "Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop"
 type: skill
 url: https://github.com/Leonxlnx/taste-skill
-stars: 86.6k
+stars: 86.8k
 language: JavaScript
 pushed: 2026-08-24
 ---
