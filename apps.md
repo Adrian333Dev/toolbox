@@ -1,1 +1,2 @@
 - https://openvid.dev/
+- [openvid](https://github.com/CristianOlivera1/openvid) (`1.7k★` · `TypeScript` · pushed 2026-08-07): Create professional demos and 3D mockups in seconds, directly in your browser
